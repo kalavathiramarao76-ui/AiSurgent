@@ -1,8 +1,53 @@
-# React + Vite
+# AiSurgent Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Marketing website for AiSurgent built with React, Vite, Tailwind CSS, and React Router.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18
+- Vite 5
+- Tailwind CSS 3
+- React Router
+- AOS (Animate On Scroll)
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ (recommended)
+- npm
+
+### Install
+
+```bash
+npm install
+```
+
+### Run Locally
+
+```bash
+npm run dev
+```
+
+The app starts on the local Vite dev server (typically `http://localhost:5173`).
+
+## Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the production bundle
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint
+
+## Routes
+
+- `/` - Home page
+- `/about` - About page
+- `/consulting` - Consulting page
+- `/collabs` - Collaborations page
+
+## Project Structure
+
+- `src/components` - Reusable UI sections and layout parts
+- `src/pages` - Route-level page components
+- `src/App.jsx` - App routing and AOS initialization
+- `src/main.jsx` - React entry point
