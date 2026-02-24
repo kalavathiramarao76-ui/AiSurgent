@@ -69,7 +69,7 @@ export default function Contact() {
               GitHub
             </a>
             <a
-              href="https://www.youtube.com/channel/UCjfTDoriZMoXlAeQ5oebRhw"
+              href="https://www.youtube.com/@AIsurgentDev"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-400 hover:text-white transition-colors"

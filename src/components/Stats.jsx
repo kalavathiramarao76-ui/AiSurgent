@@ -1,13 +1,16 @@
 import { Eye, Clock, Users, Film } from 'lucide-react'
-
-const stats = [
-  { icon: Eye, label: 'Views', value: '300k+', color: 'text-aiblue' },
-  { icon: Clock, label: 'Watch Hours', value: '20k+', color: 'text-aipurple' },
-  { icon: Users, label: 'Subscribers', value: '11k+', color: 'text-aiorange' },
-  { icon: Film, label: 'Videos', value: '50+', color: 'text-aigreen' },
-]
+import { useYouTubeStats, formatCount } from '../hooks/useYouTubeStats'
 
 export default function Stats() {
+  const ytStats = useYouTubeStats()
+
+  const stats = [
+    { icon: Eye, label: 'Views', value: formatCount(ytStats?.viewCount) ?? '300K+', color: 'text-aiblue' },
+    { icon: Clock, label: 'Watch Hours', value: '20K+', color: 'text-aipurple' },
+    { icon: Users, label: 'Subscribers', value: formatCount(ytStats?.subscriberCount) ?? '11K+', color: 'text-aiorange' },
+    { icon: Film, label: 'Videos', value: formatCount(ytStats?.videoCount) ?? '50+', color: 'text-aigreen' },
+  ]
+
   return (
     <section className="py-24 px-4">
       <div className="max-w-4xl mx-auto">

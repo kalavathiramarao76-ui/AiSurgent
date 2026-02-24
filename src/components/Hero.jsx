@@ -1,6 +1,10 @@
 import { ArrowDown, Youtube, Package } from 'lucide-react'
+import { useYouTubeStats, formatCount } from '../hooks/useYouTubeStats'
 
 export default function Hero() {
+  const ytStats = useYouTubeStats()
+  const subscriberCount = formatCount(ytStats?.subscriberCount)
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background effects */}
@@ -41,10 +45,21 @@ export default function Hero() {
 
         {/* Stats badges */}
         <div data-aos="fade-up" data-aos-delay="300" className="flex flex-wrap justify-center gap-6">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5">
+          <a
+            href="https://www.youtube.com/@AIsurgentDev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:border-red-500/40 hover:bg-red-500/5 transition-all"
+          >
             <Youtube size={16} className="text-red-500" />
-            <span className="text-sm text-gray-300">YouTube Creator</span>
-          </div>
+            <span className="text-sm text-gray-300">YouTube</span>
+            {subscriberCount && (
+              <>
+                <span className="text-white/20">·</span>
+                <span className="text-sm font-semibold text-red-400">{subscriberCount} subscribers</span>
+              </>
+            )}
+          </a>
           <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5">
             <Package size={16} className="text-aipurple" />
             <span className="text-sm text-gray-300">Resource Packs Available</span>

@@ -54,5 +54,5 @@ The app starts on the local Vite dev server (typically `http://localhost:5173`).
 
 ## Links
 
-- [YouTube Channel](https://www.youtube.com/channel/UCjfTDoriZMoXlAeQ5oebRhw)
+- [YouTube Channel](https://www.youtube.com/@AIsurgentDev)
 - [GitHub](https://github.com/balisaikiran)
