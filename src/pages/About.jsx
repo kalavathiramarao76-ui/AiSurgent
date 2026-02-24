@@ -1,4 +1,4 @@
-import { Code, Youtube, GraduationCap, Clock, Users, ArrowRight } from 'lucide-react'
+import { Code, Youtube, GraduationCap, Clock, ArrowRight } from 'lucide-react'
 import { useSEO } from '../hooks/useSEO'
 
 const credentials = [

@@ -7,11 +7,6 @@ const DEFAULT_DESC =
   'Master AI-assisted development with Saikiran Bali (balisaikiran). Weekly tutorials on Claude, Claude Code, ADK, MCP, agentic workflows, and real-world AI integrations for developers.'
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`
 
-function setMeta(selector, content, attrName = 'content') {
-  const el = document.querySelector(selector)
-  if (el) el.setAttribute(attrName, content)
-}
-
 function setOrCreate(attr, value, content) {
   let el = document.querySelector(`meta[${attr}="${value}"]`)
   if (!el) {
