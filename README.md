@@ -51,3 +51,8 @@ The app starts on the local Vite dev server (typically `http://localhost:5173`).
 - `src/pages` - Route-level page components
 - `src/App.jsx` - App routing and AOS initialization
 - `src/main.jsx` - React entry point
+
+## Links
+
+- [YouTube Channel](https://www.youtube.com/channel/UCjfTDoriZMoXlAeQ5oebRhw)
+- [GitHub](https://github.com/balisaikiran)

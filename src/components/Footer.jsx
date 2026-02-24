@@ -11,9 +11,9 @@ const footerLinks = [
 ]
 
 const socialLinks = [
-  { icon: Youtube, href: 'https://youtube.com/@AISurgent', label: 'YouTube' },
+  { icon: Youtube, href: 'https://www.youtube.com/channel/UCjfTDoriZMoXlAeQ5oebRhw', label: 'YouTube' },
   { icon: Twitter, href: 'https://twitter.com/SaikiranBali', label: 'Twitter / X' },
-  { icon: Github, href: 'https://github.com/SaikiranBali', label: 'GitHub' },
+  { icon: Github, href: 'https://github.com/balisaikiran', label: 'GitHub' },
 ]
 
 export default function Footer() {

@@ -61,7 +61,7 @@ export default function Contact() {
               Twitter / X
             </a>
             <a
-              href="https://github.com/SaikiranBali"
+              href="https://github.com/balisaikiran"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-400 hover:text-white transition-colors"
@@ -69,7 +69,7 @@ export default function Contact() {
               GitHub
             </a>
             <a
-              href="https://youtube.com/@AISurgent"
+              href="https://www.youtube.com/channel/UCjfTDoriZMoXlAeQ5oebRhw"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-gray-400 hover:text-white transition-colors"
