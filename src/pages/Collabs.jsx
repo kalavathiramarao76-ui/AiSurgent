@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { Video, Clock, Mail, ArrowRight, ExternalLink } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 const formats = [
   {
@@ -22,9 +22,12 @@ const recentExamples = [
 ]
 
 export default function Collabs() {
-  useEffect(() => {
-    document.title = 'AISurgent.Dev | Collaborations & Sponsorships'
-  }, [])
+  useSEO({
+    title: 'YouTube Collaborations & Sponsorships — AISurgentDev',
+    description:
+      'Partner with Saikiran Bali (balisaikiran) on AISurgentDev. Reach developers building with Claude, ADK, MCP, and AI tools through dedicated videos, ad drop-ins, and resource pack integrations.',
+    path: '/collabs',
+  })
 
   return (
     <section className="pt-32 pb-24 px-4">

@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { Code, Youtube, GraduationCap, Clock, Users, ArrowRight } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 const credentials = [
   { icon: Code, label: 'Software Developer' },
@@ -9,9 +9,12 @@ const credentials = [
 ]
 
 export default function About() {
-  useEffect(() => {
-    document.title = 'AISurgent.Dev | About'
-  }, [])
+  useSEO({
+    title: 'Saikiran Bali (balisaikiran) — AI Developer & YouTube Creator',
+    description:
+      'Meet Saikiran Bali (balisaikiran), the creator behind AISurgentDev. AI developer, content creator, and YouTube educator covering Claude, ADK, MCP, agentic workflows, and practical AI for developers.',
+    path: '/about',
+  })
 
   return (
     <section className="pt-32 pb-24 px-4">

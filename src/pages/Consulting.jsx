@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useSEO } from '../hooks/useSEO'
 import {
   Gamepad2, Workflow, Link2, Code2, Lightbulb,
   Rocket, Users, Briefcase, Wrench,
@@ -22,9 +22,12 @@ const whoFor = [
 ]
 
 export default function Consulting() {
-  useEffect(() => {
-    document.title = 'AISurgent.Dev | AI Consulting'
-  }, [])
+  useSEO({
+    title: 'AI Consulting — Claude, ADK, MCP & Agentic Workflow Integration',
+    description:
+      'Get hands-on AI consulting from Saikiran Bali (balisaikiran). Expert guidance on Claude API, Claude Code, Agent Development Kit, MCP integration, agentic workflows, and building production-ready AI features.',
+    path: '/consulting',
+  })
 
   return (
     <section className="pt-32 pb-24 px-4">

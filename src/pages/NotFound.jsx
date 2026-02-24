@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Home } from 'lucide-react'
+import { useSEO } from '../hooks/useSEO'
 
 export default function NotFound() {
+  useSEO({ title: 'Page Not Found' })
+
   return (
     <section className="min-h-screen flex items-center justify-center px-4">
       <div className="text-center">
