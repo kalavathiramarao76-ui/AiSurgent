@@ -1,4 +1,4 @@
-import { Video, Clock, Mail, ArrowRight, ExternalLink } from 'lucide-react'
+import { Video, Clock, Mail } from 'lucide-react'
 import { useSEO } from '../hooks/useSEO'
 
 const formats = [
