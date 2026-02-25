@@ -80,9 +80,14 @@ export default function Footer() {
           <p className="text-xs text-gray-500">
             &copy; {new Date().getFullYear()} AISurgent.Dev. All rights reserved.
           </p>
-          <p className="text-xs text-gray-600">
-            Built by Saikiran Bali
-          </p>
+          <div className="flex items-center gap-4">
+            <Link to="/privacy" className="text-xs text-gray-600 hover:text-gray-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <p className="text-xs text-gray-600">
+              Built by Saikiran Bali
+            </p>
+          </div>
         </div>
       </div>
     </footer>
