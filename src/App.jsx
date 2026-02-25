@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Consulting from './pages/Consulting'
 import Collabs from './pages/Collabs'
+import Privacy from './pages/Privacy'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/consulting" element={<Consulting />} />
         <Route path="/collabs" element={<Collabs />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
