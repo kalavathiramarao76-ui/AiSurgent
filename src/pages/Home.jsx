@@ -5,6 +5,7 @@ import BuilderPacks from '../components/BuilderPacks'
 import Tutorials from '../components/Tutorials'
 import Stats from '../components/Stats'
 import InsidersClub from '../components/InsidersClub'
+import ProductsHighlight from '../components/ProductsHighlight'
 import Contact from '../components/Contact'
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <BuilderPacks />
       <Tutorials />
       <Stats />
+      <ProductsHighlight />
       <InsidersClub />
       <Contact />
     </>

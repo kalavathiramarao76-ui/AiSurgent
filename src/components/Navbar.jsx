@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Tutorials', href: '/#tutorials' },
   { label: 'Resources', href: '/#builder-packs' },
   { label: 'Insiders Club', href: '/#insiders' },
+  { label: 'Products', to: '/products' },
   { label: 'Collabs', to: '/collabs' },
   { label: 'Contact', href: '/#contact' },
   { label: 'About', to: '/about' },

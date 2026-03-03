@@ -7,6 +7,7 @@ import About from './pages/About'
 import Consulting from './pages/Consulting'
 import Collabs from './pages/Collabs'
 import Privacy from './pages/Privacy'
+import Products from './pages/Products'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/consulting" element={<Consulting />} />
         <Route path="/collabs" element={<Collabs />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/products" element={<Products />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Layout>
