@@ -195,13 +195,17 @@ const PRODUCTS_SCHEMAS = [
     '@type': 'SoftwareApplication',
     '@id': 'https://aisurgent.dev/products#ragtab',
     name: 'RagTab',
-    alternateName: 'RagTab Chrome Extension',
+    alternateName: ['RagTab Chrome Extension', 'RagTab AI', 'AI Tab Sidekick'],
     description:
       'Privacy-first Chrome extension combining a full-featured tab manager with local AI-powered RAG search. Chat with your open tabs using Gemini, OpenAI, or Claude — zero raw data leaves your device.',
     applicationCategory: 'BrowserApplication',
-    applicationSubCategory: 'Tab Manager',
-    operatingSystem: 'Chrome',
-    softwareVersion: '1.0.1',
+    applicationSubCategory: 'Tab Manager, Productivity, AI Assistant',
+    operatingSystem: 'Chrome, Chromium, Brave, Edge, Arc, Opera',
+    browserRequirements: 'Chrome 114+ or any Chromium-based browser supporting Manifest V3',
+    softwareVersion: '1.0.3',
+    datePublished: '2025-01-01',
+    dateModified: '2026-03-09',
+    isAccessibleForFree: true,
     url: 'https://chromewebstore.google.com/detail/jabiidnhodnkkjfkohgpdddeakhfabdk',
     downloadUrl: 'https://chromewebstore.google.com/detail/jabiidnhodnkkjfkohgpdddeakhfabdk',
     offers: {
@@ -209,21 +213,26 @@ const PRODUCTS_SCHEMAS = [
       price: '0',
       priceCurrency: 'USD',
       availability: 'https://schema.org/InStock',
+      description: 'Free plan includes 5 tabs per sync. Pro plan with unlimited tabs coming soon.',
     },
     author: { '@id': 'https://aisurgent.dev/#person' },
+    creator: { '@id': 'https://aisurgent.dev/#person' },
     featureList: [
-      'Live multi-word tab search',
-      'Drag and drop between windows',
-      'Duplicate tab detection',
-      'Bulk tab actions',
+      'Live multi-word tab search across all windows',
+      'Drag and drop tabs between windows',
+      'Duplicate tab detection with DUP badge',
+      'Bulk tab actions — close, pin, move, discard',
       'Window color-coding and naming',
-      'Session save and restore',
-      'AI-powered RAG search',
-      'Local vector embeddings (IndexedDB)',
+      'Session save and restore (local, cross-restart)',
+      'AI-powered RAG search with cited answers',
+      'Local vector embeddings stored in IndexedDB',
       'Mozilla Readability content extraction',
-      'Semantic cosine similarity search',
-      'Multi-provider AI — Gemini, OpenAI, Claude',
-      'Zero telemetry — privacy-first',
+      'Semantic cosine similarity search (~1,000-token chunks, 768-dim)',
+      'Multi-provider AI — Gemini (gemini-2.0-flash / gemini-2.5-pro), OpenAI (gpt-4o-mini / gpt-4o), Claude (haiku-4-5 / sonnet-4-6)',
+      'Bring-your-own API key — keys never leave your device',
+      'Embedding guard — detects provider switches, prompts re-sync',
+      'Zero telemetry — no analytics, no accounts, no backend',
+      'Keyboard navigation — arrow keys, Ctrl+A, Shift+Click range select',
     ],
   },
   {
@@ -303,6 +312,38 @@ const PRODUCTS_SCHEMAS = [
           text: 'RagTab uses Mozilla Readability to extract clean text from your tabs, chunks it into ~1,000-token segments, and generates 768-dimensional vector embeddings stored locally in IndexedDB. When you ask a question, cosine similarity retrieves the top matching snippets, which are sent to your AI provider to generate a cited, grounded answer with links back to the source tabs.',
         },
       },
+      {
+        '@type': 'Question',
+        name: 'What browsers does RagTab support?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'RagTab supports Chrome and all Chromium-based browsers including Brave, Microsoft Edge, Arc, and Opera. It requires Chrome Manifest V3 compatibility (Chrome 114 or later). It is not currently available for Firefox or Safari.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How is RagTab different from other AI Chrome extensions?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'RagTab is unique in combining a fully-featured tab manager (live search, drag-and-drop, session save/restore, duplicate detection) with a local RAG pipeline. Unlike other AI extensions that send your browsing history to a cloud service, RagTab uses an in-browser IndexedDB vector store — no external vector database is required. It also supports three AI providers (Gemini, OpenAI, Claude) simultaneously, and includes an embedding guard that detects provider switches to prevent cross-space vector mismatches.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does RagTab require a paid subscription?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. RagTab is free to install and use with up to 5 tabs per sync session. You need your own API key from Google Gemini, OpenAI, or Anthropic Claude — these providers offer free or low-cost tiers. A RagTab Pro plan with unlimited tabs is coming soon but the core extension will always have a free tier.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I install RagTab?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Visit the Chrome Web Store and install RagTab. After installation: (1) click the RagTab icon in your browser toolbar, (2) open Settings and enter your API key for Gemini, OpenAI, or Claude, (3) open the tabs you want to search, (4) click "Sync Session" to index them, and (5) type any question in the AI chat panel. Setup takes under 2 minutes.',
+        },
+      },
     ],
   },
 ]
@@ -313,6 +354,8 @@ export default function Products() {
     description:
       'RagTab is a privacy-first Chrome extension combining a full-featured tab manager with local AI-powered RAG search. Chat with your open tabs using Gemini, OpenAI, or Claude — zero raw data leaves your device.',
     path: '/products',
+    keywords:
+      'RagTab, AI tab manager, RAG search Chrome extension, chat with browser tabs, local RAG, private AI extension, Gemini Chrome extension, OpenAI Chrome extension, Claude Chrome extension, IndexedDB vector search, tab organizer AI, privacy-first browser extension, Retrieval-Augmented Generation browser, cosine similarity tab search',
     schemas: PRODUCTS_SCHEMAS,
   })
 
@@ -325,7 +368,7 @@ export default function Products() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs text-gray-400 mb-6">
             <Chrome size={13} className="text-aiblue" />
-            Chrome Extension · v1.0.1 · Free &amp; Pro
+            Chrome Extension · v1.0.3 · Free &amp; Pro
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
