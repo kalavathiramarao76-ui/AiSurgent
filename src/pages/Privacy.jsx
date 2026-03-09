@@ -101,12 +101,32 @@ const privacyHighlights = [
   { label: 'Snippets Only', desc: 'Only ~300-token chunks sent to AI' },
 ]
 
+const PRIVACY_SCHEMAS = [
+  {
+    '@type': 'WebPage',
+    '@id': 'https://aisurgent.dev/privacy#webpage',
+    url: 'https://aisurgent.dev/privacy',
+    name: 'RagTab Privacy Policy — Privacy-First Chrome Extension',
+    description:
+      'RagTab is a privacy-first browser extension. All tab indexing and vector embeddings are generated locally. Your data never leaves your device.',
+    isPartOf: { '@id': 'https://aisurgent.dev/#website' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aisurgent.dev/' },
+        { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: 'https://aisurgent.dev/privacy' },
+      ],
+    },
+  },
+]
+
 export default function Privacy() {
   useSEO({
     title: 'RagTab Privacy Policy — Privacy-First Chrome Extension',
     description:
       'RagTab is a privacy-first browser extension. All tab indexing and vector embeddings are generated locally. Read our full privacy policy to understand how your data is protected.',
     path: '/privacy',
+    schemas: PRIVACY_SCHEMAS,
   })
 
   return (

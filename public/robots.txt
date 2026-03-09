@@ -1,0 +1,55 @@
+# AISurgent.Dev — robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /404
+
+# ── Traditional Search Engines ──
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ── AI Search & Citation Bots ── (allow so AI engines can cite this site)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: BrightBot
+Allow: /
+
+# ── Training-only crawlers ── (block data harvesting, but allow search/citation bots above)
+User-agent: CCBot
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+Sitemap: https://aisurgent.dev/sitemap.xml

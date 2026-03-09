@@ -21,12 +21,61 @@ const recentExamples = [
   { title: 'Ad drop-in -- Codex series (example 2)', type: 'Ad Drop-in' },
 ]
 
+const COLLABS_SCHEMAS = [
+  {
+    '@type': 'WebPage',
+    '@id': 'https://aisurgent.dev/collabs#webpage',
+    url: 'https://aisurgent.dev/collabs',
+    name: 'YouTube Collaborations & Sponsorships — AISurgentDev',
+    description:
+      'Partner with Saikiran Bali (balisaikiran) on AISurgentDev. Reach developers building with Claude, ADK, MCP, and AI tools.',
+    isPartOf: { '@id': 'https://aisurgent.dev/#website' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aisurgent.dev/' },
+        { '@type': 'ListItem', position: 2, name: 'Collabs', item: 'https://aisurgent.dev/collabs' },
+      ],
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How do I collaborate with AISurgentDev?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'You can collaborate with AISurgentDev (Saikiran Bali) through dedicated videos — in-depth walkthroughs showcasing your tool — or 60-90 second ad drop-ins woven naturally into existing videos. Email collabs@aisurgent.dev to discuss a collaboration.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What audience does AISurgentDev reach?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'AISurgentDev reaches hands-on developers building with Claude, Agent Development Kit (ADK), Model Context Protocol (MCP), and AI tools. The audience consists of software developers, indie developers, founders, and AI enthusiasts who actively build real-world AI applications.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What types of AI tool sponsorships has AISurgentDev done?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'AISurgentDev has done dedicated video collaborations (e.g., Browserbase, TestSprite) and ad drop-in segments in the Codex series. Both formats focus on authentic, practical integrations that resonate with a developer audience.',
+        },
+      },
+    ],
+  },
+]
+
 export default function Collabs() {
   useSEO({
     title: 'YouTube Collaborations & Sponsorships — AISurgentDev',
     description:
       'Partner with Saikiran Bali (balisaikiran) on AISurgentDev. Reach developers building with Claude, ADK, MCP, and AI tools through dedicated videos, ad drop-ins, and resource pack integrations.',
     path: '/collabs',
+    schemas: COLLABS_SCHEMAS,
   })
 
   return (

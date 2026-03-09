@@ -21,12 +21,76 @@ const whoFor = [
   { icon: Wrench, title: 'Developers & Hobbyists', desc: 'Wanting to level up their skills in practical AI implementation.' },
 ]
 
+const CONSULTING_SCHEMAS = [
+  {
+    '@type': 'Service',
+    '@id': 'https://aisurgent.dev/consulting#service',
+    name: 'AI Consulting by Saikiran Bali',
+    description:
+      'Expert hands-on AI consulting on Claude API, Claude Code, Agent Development Kit (ADK), MCP integration, agentic workflows, and building production-ready AI features.',
+    provider: { '@id': 'https://aisurgent.dev/#person' },
+    serviceType: 'AI Development Consulting',
+    areaServed: 'Worldwide',
+    availableLanguage: 'English',
+    url: 'https://aisurgent.dev/consulting',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: '45-Minute Deep Dive Session',
+        price: '199',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        description:
+          'Hands-on advice tailored to your build. Includes a written summary, next steps, and relevant tools or resources.',
+      },
+    ],
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What AI topics does Saikiran Bali consult on?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Saikiran Bali consults on Claude API integration, Claude Code, Agent Development Kit (ADK), Model Context Protocol (MCP) integration, agentic workflows, multi-agent systems, AI-powered development, and building production-ready AI features.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How much does an AI consulting session cost?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'A 45-minute deep dive AI consulting session with Saikiran Bali costs $199 USD. It includes hands-on advice tailored to your build, a written summary, next steps, and relevant tools or resources.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Who is AI consulting from AISurgentDev for?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'AI consulting from Saikiran Bali is for developers exploring AI for new features, indie developers and small teams needing targeted AI expertise without a full-time hire, founders and product owners aiming to integrate AI features, and developers wanting to level up their practical AI implementation skills.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How do I book an AI consulting session?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Email consulting@aisurgent.dev to schedule a 45-minute deep dive session ($199 USD) or to discuss your AI project.',
+        },
+      },
+    ],
+  },
+]
+
 export default function Consulting() {
   useSEO({
     title: 'AI Consulting — Claude, ADK, MCP & Agentic Workflow Integration',
     description:
       'Get hands-on AI consulting from Saikiran Bali (balisaikiran). Expert guidance on Claude API, Claude Code, Agent Development Kit, MCP integration, agentic workflows, and building production-ready AI features.',
     path: '/consulting',
+    schemas: CONSULTING_SCHEMAS,
   })
 
   return (
