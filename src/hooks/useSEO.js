@@ -43,7 +43,7 @@ function removePageSchemas() {
   document.querySelectorAll('script[data-page-schema="true"]').forEach((el) => el.remove())
 }
 
-export function useSEO({ title, description, path, image, schemas } = {}) {
+export function useSEO({ title, description, path, image, keywords, schemas } = {}) {
   useEffect(() => {
     const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE
     const desc = description || DEFAULT_DESC
@@ -55,14 +55,18 @@ export function useSEO({ title, description, path, image, schemas } = {}) {
     // Standard
     setOrCreate('name', 'description', desc)
     setOrCreate('name', 'title', fullTitle)
+    if (keywords) setOrCreate('name', 'keywords', keywords)
 
     // Open Graph
+    setOrCreate('property', 'og:type', 'website')
+    setOrCreate('property', 'og:site_name', SITE_NAME)
     setOrCreate('property', 'og:title', fullTitle)
     setOrCreate('property', 'og:description', desc)
     setOrCreate('property', 'og:url', url)
     setOrCreate('property', 'og:image', img)
 
     // Twitter
+    setOrCreate('name', 'twitter:card', 'summary_large_image')
     setOrCreate('name', 'twitter:title', fullTitle)
     setOrCreate('name', 'twitter:description', desc)
     setOrCreate('name', 'twitter:url', url)
@@ -85,5 +89,5 @@ export function useSEO({ title, description, path, image, schemas } = {}) {
       setOrCreate('name', 'twitter:description', DEFAULT_DESC)
       removePageSchemas()
     }
-  }, [title, description, path, image, schemas])
+  }, [title, description, path, image, keywords, schemas])
 }
