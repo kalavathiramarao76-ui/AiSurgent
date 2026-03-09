@@ -190,12 +190,130 @@ const proFeatures = [
   'All 3 AI providers',
 ]
 
+const PRODUCTS_SCHEMAS = [
+  {
+    '@type': 'SoftwareApplication',
+    '@id': 'https://aisurgent.dev/products#ragtab',
+    name: 'RagTab',
+    alternateName: 'RagTab Chrome Extension',
+    description:
+      'Privacy-first Chrome extension combining a full-featured tab manager with local AI-powered RAG search. Chat with your open tabs using Gemini, OpenAI, or Claude — zero raw data leaves your device.',
+    applicationCategory: 'BrowserApplication',
+    applicationSubCategory: 'Tab Manager',
+    operatingSystem: 'Chrome',
+    softwareVersion: '1.0.1',
+    url: 'https://chromewebstore.google.com/detail/jabiidnhodnkkjfkohgpdddeakhfabdk',
+    downloadUrl: 'https://chromewebstore.google.com/detail/jabiidnhodnkkjfkohgpdddeakhfabdk',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+    },
+    author: { '@id': 'https://aisurgent.dev/#person' },
+    featureList: [
+      'Live multi-word tab search',
+      'Drag and drop between windows',
+      'Duplicate tab detection',
+      'Bulk tab actions',
+      'Window color-coding and naming',
+      'Session save and restore',
+      'AI-powered RAG search',
+      'Local vector embeddings (IndexedDB)',
+      'Mozilla Readability content extraction',
+      'Semantic cosine similarity search',
+      'Multi-provider AI — Gemini, OpenAI, Claude',
+      'Zero telemetry — privacy-first',
+    ],
+  },
+  {
+    '@type': 'HowTo',
+    '@id': 'https://aisurgent.dev/products#howto',
+    name: 'How to use RagTab — AI Tab Manager & RAG Search for Chrome',
+    description:
+      'Get started with RagTab to search and chat with your open browser tabs using local AI in under 2 minutes.',
+    totalTime: 'PT2M',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Open Your Tabs',
+        text: 'Browse normally. Open articles, docs, research, anything — RagTab works with your existing workflow.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Click Sync Session',
+        text: 'RagTab extracts clean text from each tab via Mozilla Readability, chunks it into ~1,000-token segments, and generates local 768-dim vector embeddings stored in IndexedDB on your device.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Ask Any Question',
+        text: 'Type a natural-language question like "Where did I read about React Server Components?" in the AI chat panel.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 4,
+        name: 'Get Cited Answers',
+        text: 'Receive a grounded answer with source cards linking directly to the exact tabs it came from.',
+      },
+    ],
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is RagTab?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'RagTab is a privacy-first Chrome extension that combines a full-featured tab manager with a local AI assistant powered by Retrieval-Augmented Generation (RAG). It lets you search, organise, and ask natural-language questions about all your open tabs using Gemini, OpenAI, or Claude — without sending your raw browsing data to the cloud.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is RagTab free?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. RagTab is free to install from the Chrome Web Store. The free tier includes 5 tabs per sync session, full tab manager features, unlimited session save and restore, local vector search, and access to all 3 AI providers (Gemini, OpenAI, Claude). A Pro tier with unlimited tabs is coming soon.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Does RagTab send my browsing data to the cloud?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. RagTab stores all extracted content and vector embeddings locally in your browser\'s IndexedDB. Only the top 3 relevant text snippets (~300 tokens each) are sent to your chosen AI provider when you ask a question. Full page content never leaves your device.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Which AI providers does RagTab support?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'RagTab supports Google Gemini (gemini-2.0-flash / gemini-2.5-pro), OpenAI (gpt-4o-mini / gpt-4o), and Anthropic Claude (claude-haiku-4-5 / claude-sonnet-4-6). You bring your own API key and can switch providers at any time from the settings panel.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How does RagTab RAG search work?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'RagTab uses Mozilla Readability to extract clean text from your tabs, chunks it into ~1,000-token segments, and generates 768-dimensional vector embeddings stored locally in IndexedDB. When you ask a question, cosine similarity retrieves the top matching snippets, which are sent to your AI provider to generate a cited, grounded answer with links back to the source tabs.',
+        },
+      },
+    ],
+  },
+]
+
 export default function Products() {
   useSEO({
     title: 'RagTab — AI Tab Manager & RAG Search Chrome Extension',
     description:
       'RagTab is a privacy-first Chrome extension combining a full-featured tab manager with local AI-powered RAG search. Chat with your open tabs using Gemini, OpenAI, or Claude — zero raw data leaves your device.',
     path: '/products',
+    schemas: PRODUCTS_SCHEMAS,
   })
 
   return (

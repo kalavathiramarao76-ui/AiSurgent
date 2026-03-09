@@ -27,7 +27,23 @@ function setCanonical(path) {
   el.setAttribute('href', SITE_URL + path)
 }
 
-export function useSEO({ title, description, path, image } = {}) {
+function injectSchemas(schemas) {
+  if (!schemas || schemas.length === 0) return
+  const script = document.createElement('script')
+  script.type = 'application/ld+json'
+  script.setAttribute('data-page-schema', 'true')
+  script.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@graph': schemas,
+  })
+  document.head.appendChild(script)
+}
+
+function removePageSchemas() {
+  document.querySelectorAll('script[data-page-schema="true"]').forEach((el) => el.remove())
+}
+
+export function useSEO({ title, description, path, image, schemas } = {}) {
   useEffect(() => {
     const fullTitle = title ? `${title} | ${SITE_NAME}` : DEFAULT_TITLE
     const desc = description || DEFAULT_DESC
@@ -55,6 +71,10 @@ export function useSEO({ title, description, path, image } = {}) {
     // Canonical
     if (path) setCanonical(path)
 
+    // Page-level JSON-LD schemas
+    removePageSchemas()
+    if (schemas && schemas.length > 0) injectSchemas(schemas)
+
     return () => {
       document.title = DEFAULT_TITLE
       setOrCreate('name', 'description', DEFAULT_DESC)
@@ -63,6 +83,7 @@ export function useSEO({ title, description, path, image } = {}) {
       setOrCreate('property', 'og:url', SITE_URL + '/')
       setOrCreate('name', 'twitter:title', DEFAULT_TITLE)
       setOrCreate('name', 'twitter:description', DEFAULT_DESC)
+      removePageSchemas()
     }
-  }, [title, description, path, image])
+  }, [title, description, path, image, schemas])
 }

@@ -10,9 +10,16 @@
     <meta name="description" content="Master AI-assisted development with Saikiran Bali (balisaikiran). Weekly tutorials on Claude, Claude Code, ADK, MCP, agentic workflows, multi-agent systems, and real-world AI integrations for developers." />
     <meta name="keywords" content="AISurgent, AISurgentDev, AI Surgent, AISurgent Dev, Saikiran Bali, balisaikiran, Claude, Claude Code, Claude API, Claude Sonnet, Claude Opus, Claude Haiku, Anthropic, Claude AI tutorials, ADK, Agent Development Kit, Google ADK, MCP, Model Context Protocol, A2A protocol, agent to agent, agentic workflows, multi-agent systems, AI development tutorials, AI coding tutorials, AI YouTube channel, AI developer, vibe coding, LLM integration, AI automation, prompt engineering, AI tools for developers, OpenAI Codex, Cursor AI, GitHub Copilot, Stagehand, Browserbase, Remotion, AI programming, software development AI, AI workflows, production AI, AI content creator, AI YouTube, learn Claude, Claude tutorial, AI agent development, AI for developers" />
     <meta name="author" content="Saikiran Bali" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#000000" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="canonical" href="https://aisurgent.dev/" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US" />
+    <meta name="geo.placename" content="United States" />
+    <meta name="ICBM" content="37.0902, -95.7129" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -43,7 +50,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD Structured Data — Site-wide -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,7 +63,40 @@
           "alternateName": ["AISurgent", "AI Surgent", "AISurgentDev"],
           "description": "AI development tutorials, resources, and guides by Saikiran Bali covering Claude, ADK, MCP, and agentic workflows",
           "publisher": { "@id": "https://aisurgent.dev/#person" },
-          "inLanguage": "en-US"
+          "inLanguage": "en-US",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.youtube.com/@AIsurgentDev/search?query={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://aisurgent.dev/#organization",
+          "name": "AISurgent.Dev",
+          "alternateName": ["AISurgent", "AISurgentDev"],
+          "url": "https://aisurgent.dev/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://aisurgent.dev/og-image.png",
+            "width": 1200,
+            "height": 630
+          },
+          "founder": { "@id": "https://aisurgent.dev/#person" },
+          "sameAs": [
+            "https://www.youtube.com/@AIsurgentDev",
+            "https://github.com/balisaikiran",
+            "https://twitter.com/SaikiranBali"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "consulting@aisurgent.dev",
+            "contactType": "customer support",
+            "availableLanguage": "English"
+          }
         },
         {
           "@type": "Person",
@@ -66,6 +106,7 @@
           "url": "https://aisurgent.dev/about",
           "jobTitle": "AI Developer & Content Creator",
           "description": "AI developer and YouTube content creator specializing in Claude, Claude Code, agentic workflows, ADK, MCP, and practical AI integrations for developers.",
+          "worksFor": { "@id": "https://aisurgent.dev/#organization" },
           "sameAs": [
             "https://www.youtube.com/@AIsurgentDev",
             "https://github.com/balisaikiran",
@@ -85,7 +126,10 @@
             "AI Automation",
             "Prompt Engineering",
             "Vibe Coding",
-            "AI-assisted Development"
+            "AI-assisted Development",
+            "RAG (Retrieval-Augmented Generation)",
+            "Vector Embeddings",
+            "Chrome Extension Development"
           ]
         }
       ]

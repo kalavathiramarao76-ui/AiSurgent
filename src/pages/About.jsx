@@ -8,12 +8,53 @@ const credentials = [
   { icon: Clock, label: 'Years of Experience' },
 ]
 
+const ABOUT_SCHEMAS = [
+  {
+    '@type': 'ProfilePage',
+    '@id': 'https://aisurgent.dev/about#profilepage',
+    url: 'https://aisurgent.dev/about',
+    name: 'Saikiran Bali (balisaikiran) — AI Developer & YouTube Creator',
+    description:
+      'Meet Saikiran Bali (balisaikiran), AI developer and YouTube educator covering Claude, ADK, MCP, agentic workflows, and practical AI for developers.',
+    mainEntity: { '@id': 'https://aisurgent.dev/#person' },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://aisurgent.dev/' },
+        { '@type': 'ListItem', position: 2, name: 'About', item: 'https://aisurgent.dev/about' },
+      ],
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Who is Saikiran Bali?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Saikiran Bali (balisaikiran) is an AI developer and YouTube content creator who runs AISurgentDev. He builds and documents AI-powered workflows, tutorials on Claude API, Claude Code, ADK, MCP, and practical AI integrations that help developers ship production-ready AI features faster.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is AISurgent and who created it?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'AISurgent (AISurgentDev) was created by Saikiran Bali. It is a platform documenting playbooks that bridge AI breakthroughs with the reality of production software — so developers can move faster without adding risk. Tutorials cover Claude, ADK, MCP, agentic workflows, and real-world AI integrations.',
+        },
+      },
+    ],
+  },
+]
+
 export default function About() {
   useSEO({
     title: 'Saikiran Bali (balisaikiran) — AI Developer & YouTube Creator',
     description:
       'Meet Saikiran Bali (balisaikiran), the creator behind AISurgentDev. AI developer, content creator, and YouTube educator covering Claude, ADK, MCP, agentic workflows, and practical AI for developers.',
     path: '/about',
+    schemas: ABOUT_SCHEMAS,
   })
 
   return (
