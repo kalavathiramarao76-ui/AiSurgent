@@ -13,9 +13,9 @@ import NotFound from './pages/NotFound'
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: false,
+      duration: 1000,
+      easing: 'ease-out',
+      once: true,
     })
   }, [])
 
