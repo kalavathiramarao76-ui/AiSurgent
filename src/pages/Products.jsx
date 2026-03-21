@@ -359,6 +359,18 @@ const PRODUCTS_SCHEMAS = [
 
 const aiProducts = [
   {
+    name: 'RagTab',
+    tagline: 'AI Tab Manager & RAG Search',
+    icon: Chrome,
+    color: 'text-aiblue',
+    borderColor: 'border-aiblue/20',
+    bgColor: 'bg-aiblue/10',
+    web: null,
+    mobile: null,
+    chrome: 'https://chromewebstore.google.com/detail/jabiidnhodnkkjfkohgpdddeakhfabdk',
+    features: ['RAG search across open tabs', 'Full tab manager with bulk actions', '100% private — local IndexedDB', 'Gemini, OpenAI & Claude support'],
+  },
+  {
     name: 'ProfileForge AI',
     tagline: 'AI LinkedIn Profile Optimizer',
     icon: User,
@@ -845,13 +857,13 @@ export default function Products() {
         <div className="mb-20">
           <div className="text-center mb-12" data-aos="fade-up">
             <span className="text-xs uppercase tracking-widest text-aiorange font-semibold">
-              AI Product Suite
+              Our Products
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold mt-3 mb-4">
-              7 AI products, ready to use
+              8 AI-powered products, ready to use
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Beyond RagTab, we build and ship production-ready AI tools across Web, Mobile, and Chrome Extension platforms.
+              Production-ready AI tools across Web, Mobile, and Chrome Extension platforms — built for professionals, SRE teams, and content creators.
             </p>
           </div>
 

@@ -143,12 +143,13 @@ export default function ProductsHighlight() {
               AI Product Suite
             </span>
             <h3 className="text-2xl font-bold mt-2">
-              7 AI products, ready to use
+              8 AI products, ready to use
             </h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
+              { name: 'RagTab', desc: 'AI Tab Manager & RAG Search', icon: Chrome, color: 'text-aiblue', bg: 'bg-aiblue/10', url: 'https://chromewebstore.google.com/detail/jabiidnhodnkkjfkohgpdddeakhfabdk' },
               { name: 'ProfileForge AI', desc: 'AI LinkedIn Profile Optimizer', icon: User, color: 'text-aipurple', bg: 'bg-aipurple/10', url: 'https://ai-linkedin-profile-optimizer.vercel.app' },
               { name: 'PostCraft AI', desc: 'AI LinkedIn Post Generator', icon: PenTool, color: 'text-aiblue', bg: 'bg-aiblue/10', url: 'https://ai-linkedin-post-generator-teal.vercel.app' },
               { name: 'EngageBoost AI', desc: 'AI LinkedIn Post Optimizer', icon: TrendingUp, color: 'text-aiorange', bg: 'bg-aiorange/10', url: 'https://ai-linkedin-post-optimizer.vercel.app' },
