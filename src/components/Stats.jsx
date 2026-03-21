@@ -1,4 +1,4 @@
-import { Eye, Clock, Users, Film } from 'lucide-react'
+import { Eye, Clock, Users, Film, Package } from 'lucide-react'
 import { useYouTubeStats, formatCount } from '../hooks/useYouTubeStats'
 
 export default function Stats() {
@@ -9,6 +9,7 @@ export default function Stats() {
     { icon: Clock, label: 'Watch Hours', value: '20K+', color: 'text-aipurple' },
     { icon: Users, label: 'Subscribers', value: formatCount(ytStats?.subscriberCount) ?? '11K+', color: 'text-aiorange' },
     { icon: Film, label: 'Videos', value: formatCount(ytStats?.videoCount) ?? '50+', color: 'text-aigreen' },
+    { icon: Package, label: 'AI Products', value: '8', color: 'text-aipurple' },
   ]
 
   return (
@@ -19,7 +20,7 @@ export default function Stats() {
           <p className="text-gray-400">Growing library of AI development content</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6" data-aos="fade-up" data-aos-delay="100">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6" data-aos="fade-up" data-aos-delay="100">
           {stats.map((stat) => (
             <div
               key={stat.label}

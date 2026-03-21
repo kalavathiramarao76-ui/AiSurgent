@@ -18,6 +18,15 @@ import {
   Cpu,
   FileText,
   Globe,
+  User,
+  PenTool,
+  TrendingUp,
+  AlertTriangle,
+  Filter,
+  Wrench,
+  Smartphone,
+  Bot,
+  Terminal,
 } from 'lucide-react'
 import { useSEO } from '../hooks/useSEO'
 
@@ -345,6 +354,93 @@ const PRODUCTS_SCHEMAS = [
         },
       },
     ],
+  },
+]
+
+const aiProducts = [
+  {
+    name: 'ProfileForge AI',
+    tagline: 'AI LinkedIn Profile Optimizer',
+    icon: User,
+    color: 'text-aipurple',
+    borderColor: 'border-aipurple/20',
+    bgColor: 'bg-aipurple/10',
+    web: 'https://ai-linkedin-profile-optimizer.vercel.app',
+    mobile: 'https://profileforge-mobile-web.vercel.app',
+    chrome: 'https://github.com/kalavathiramarao76-ui/linkedin-profile-optimizer-ext',
+    features: ['Profile scoring (0-100)', 'Headline generator', 'Summary writer', 'Team collab & SSO'],
+  },
+  {
+    name: 'PostCraft AI',
+    tagline: 'AI LinkedIn Post Generator',
+    icon: PenTool,
+    color: 'text-aiblue',
+    borderColor: 'border-aiblue/20',
+    bgColor: 'bg-aiblue/10',
+    web: 'https://ai-linkedin-post-generator-teal.vercel.app',
+    mobile: 'https://postcraft-mobile-web.vercel.app',
+    chrome: 'https://github.com/kalavathiramarao76-ui/linkedin-post-generator-ext',
+    features: ['6 writing styles', '10 languages', 'Hooks & hashtags', 'Ready-made templates'],
+  },
+  {
+    name: 'EngageBoost AI',
+    tagline: 'AI LinkedIn Post Optimizer',
+    icon: TrendingUp,
+    color: 'text-aiorange',
+    borderColor: 'border-aiorange/20',
+    bgColor: 'bg-aiorange/10',
+    web: 'https://ai-linkedin-post-optimizer.vercel.app',
+    mobile: 'https://engageboost-mobile-web.vercel.app',
+    chrome: 'https://github.com/kalavathiramarao76-ui/linkedin-post-optimizer-ext',
+    features: ['Engagement scoring', 'A/B variants', 'Hook rewriter', 'Viral predictor'],
+  },
+  {
+    name: 'AlertLens AI',
+    tagline: 'K8s Alert Summarizer',
+    icon: AlertTriangle,
+    color: 'text-aigreen',
+    borderColor: 'border-aigreen/20',
+    bgColor: 'bg-aigreen/10',
+    web: 'https://ai-kubernetes-alert-summarizer.vercel.app',
+    mobile: 'https://alertlens-mobile-web.vercel.app',
+    chrome: 'https://github.com/kalavathiramarao76-ui/k8s-alert-summarizer-ext',
+    features: ['Alert analysis', '12 runbook types', 'P0-P4 severity', 'Slack integration'],
+  },
+  {
+    name: 'TriageFlow AI',
+    tagline: 'Alert Triage System',
+    icon: Filter,
+    color: 'text-aiblue',
+    borderColor: 'border-aiblue/20',
+    bgColor: 'bg-aiblue/10',
+    web: 'https://ai-alert-triage.vercel.app',
+    mobile: 'https://triageflow-mobile-web.vercel.app',
+    chrome: 'https://github.com/kalavathiramarao76-ui/alert-triage-ext',
+    features: ['Priority classification (P0-P4)', 'Incident creator', 'RBAC access control', 'Full audit log'],
+  },
+  {
+    name: 'ToolSpark AI',
+    tagline: 'AI Toolbox — 6 tools in one',
+    icon: Wrench,
+    color: 'text-aipurple',
+    borderColor: 'border-aipurple/20',
+    bgColor: 'bg-aipurple/10',
+    web: 'https://ai-micro-saas-2.vercel.app',
+    mobile: 'https://toolspark-mobile-web.vercel.app',
+    chrome: 'https://github.com/kalavathiramarao76-ui/ai-toolbox-ext',
+    features: ['Email writer', 'Meeting summarizer', 'Code reviewer', 'Blog & tweet generator'],
+  },
+  {
+    name: 'Autensa',
+    tagline: 'Agentic AI Chrome Extension',
+    icon: Bot,
+    color: 'text-aiorange',
+    borderColor: 'border-aiorange/20',
+    bgColor: 'bg-aiorange/10',
+    web: null,
+    mobile: null,
+    chrome: 'https://github.com/kalavathiramarao76-ui/autensa-extension',
+    features: ['Claude/GitHub/Vercel tools', 'Command palette', 'Streaming responses', 'Agentic loop'],
   },
 ]
 
@@ -742,6 +838,98 @@ export default function Products() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* ── AI Product Suite ── */}
+        <div className="mb-20">
+          <div className="text-center mb-12" data-aos="fade-up">
+            <span className="text-xs uppercase tracking-widest text-aiorange font-semibold">
+              AI Product Suite
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold mt-3 mb-4">
+              7 AI products, ready to use
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Beyond RagTab, we build and ship production-ready AI tools across Web, Mobile, and Chrome Extension platforms.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {aiProducts.map((product, i) => (
+              <div
+                key={product.name}
+                data-aos="fade-up"
+                data-aos-delay={i * 75}
+                className="gradient-border"
+              >
+                <div className="bg-[hsl(240,10%,3.9%)] rounded-lg p-6 h-full flex flex-col">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-10 h-10 rounded-xl ${product.bgColor} border ${product.borderColor} flex items-center justify-center`}>
+                      <product.icon size={20} className={product.color} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold">{product.name}</h3>
+                      <p className="text-xs text-gray-500">{product.tagline}</p>
+                    </div>
+                  </div>
+
+                  {/* Platform badges */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {product.web && (
+                      <a href={product.web} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full border border-white/10 bg-white/[0.03] text-gray-400 hover:text-white hover:border-white/20 transition-colors">
+                        <Globe size={10} /> Web
+                      </a>
+                    )}
+                    {product.mobile && (
+                      <a href={product.mobile} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full border border-white/10 bg-white/[0.03] text-gray-400 hover:text-white hover:border-white/20 transition-colors">
+                        <Smartphone size={10} /> Mobile
+                      </a>
+                    )}
+                    {product.chrome && (
+                      <a href={product.chrome} target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full border border-white/10 bg-white/[0.03] text-gray-400 hover:text-white hover:border-white/20 transition-colors">
+                        <Chrome size={10} /> Chrome Ext
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {product.features.map((feat) => (
+                      <li key={feat} className="flex items-center gap-2 text-sm text-gray-400">
+                        <CheckCircle size={13} className={`${product.color} flex-shrink-0`} />
+                        {feat}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  {product.web ? (
+                    <a
+                      href={product.web}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-aiblue via-aipurple to-aiorange hover:-translate-y-0.5 transition-transform"
+                    >
+                      Try Now <ArrowRight size={14} />
+                    </a>
+                  ) : (
+                    <a
+                      href={product.chrome}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-aiblue via-aipurple to-aiorange hover:-translate-y-0.5 transition-transform"
+                    >
+                      View on GitHub <ExternalLink size={14} />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
