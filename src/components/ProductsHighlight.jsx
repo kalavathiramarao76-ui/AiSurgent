@@ -1,4 +1,4 @@
-import { Chrome, User, PenTool, TrendingUp, AlertTriangle, Filter, Wrench, Bot, ArrowRight } from 'lucide-react'
+import { Chrome, User, PenTool, TrendingUp, AlertTriangle, Filter, Wrench, Bot, ArrowRight, FileText, Mic, Layout, BarChart3, Shield, Code } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const products = [
@@ -10,6 +10,12 @@ const products = [
   { name: 'TriageFlow AI', desc: 'Alert Triage System', icon: Filter, url: 'https://ai-alert-triage.vercel.app' },
   { name: 'ToolSpark AI', desc: 'AI Toolbox — 6 tools', icon: Wrench, url: 'https://ai-micro-saas-2.vercel.app' },
   { name: 'Autensa', desc: 'Agentic AI Assistant', icon: Bot, url: 'https://github.com/kalavathiramarao76-ui/autensa-extension' },
+  { name: 'InvoiceForge AI', desc: 'Invoice & Proposal Generator', icon: FileText, url: 'https://invoiceforge-ai.vercel.app' },
+  { name: 'PodCraft AI', desc: 'Podcast Content Repurposer', icon: Mic, url: 'https://podcraft-ai-blue.vercel.app' },
+  { name: 'PitchDeck AI', desc: 'Pitch Deck Generator', icon: Layout, url: 'https://pitchdeck-ai-beta.vercel.app' },
+  { name: 'PriceRadar AI', desc: 'Competitor Price Tracker', icon: BarChart3, url: 'https://github.com/kalavathiramarao76-ui/priceradar-ext' },
+  { name: 'ContractLens AI', desc: 'Contract Risk Analyzer', icon: Shield, url: 'https://github.com/kalavathiramarao76-ui/contractlens-ext' },
+  { name: 'RepoDoc AI', desc: 'Code Documentation Generator', icon: Code, url: 'https://github.com/kalavathiramarao76-ui/repodoc-ext' },
 ]
 
 export default function ProductsHighlight() {
@@ -24,7 +30,7 @@ export default function ProductsHighlight() {
             Product Suite
           </span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-            All 8 products
+            All 14 products
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base">
             Every product is live and free to try. No sign-up walls. Just start.

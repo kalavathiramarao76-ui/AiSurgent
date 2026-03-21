@@ -12,6 +12,12 @@ import {
   Wrench,
   Bot,
   ExternalLink,
+  FileText,
+  Mic,
+  Layout,
+  BarChart3,
+  Shield,
+  Code,
 } from 'lucide-react'
 import { useSEO } from '../hooks/useSEO'
 
@@ -136,6 +142,96 @@ const PRODUCTS = [
     chrome: 'https://github.com/kalavathiramarao76-ui/autensa-extension',
     features: ['Claude/GitHub/Vercel tools', 'Command palette', 'Streaming responses', 'Agentic loop'],
   },
+  {
+    name: 'InvoiceForge AI',
+    tagline: 'Invoice & Proposal Generator',
+    icon: FileText,
+    color: 'text-aigreen',
+    borderColor: 'border-aigreen/20',
+    bgColor: 'bg-aigreen/10',
+    glowClass: 'hover-glow-green',
+    accentGradient: 'from-green-500 to-emerald-600',
+    category: 'Productivity',
+    web: 'https://invoiceforge-ai.vercel.app',
+    mobile: null,
+    chrome: 'https://github.com/kalavathiramarao76-ui/invoiceforge-ext',
+    features: ['AI invoice generator', 'Proposal writer', 'Contract drafting', '6 templates'],
+  },
+  {
+    name: 'PodCraft AI',
+    tagline: 'Podcast Content Repurposer',
+    icon: Mic,
+    color: 'text-aipurple',
+    borderColor: 'border-aipurple/20',
+    bgColor: 'bg-aipurple/10',
+    glowClass: 'hover-glow-purple',
+    accentGradient: 'from-violet-500 to-purple-600',
+    category: 'Productivity',
+    web: 'https://podcraft-ai-blue.vercel.app',
+    mobile: null,
+    chrome: 'https://github.com/kalavathiramarao76-ui/podcraft-ext',
+    features: ['Transcript summarizer', 'Clip identifier', 'Social posts', 'Newsletter draft'],
+  },
+  {
+    name: 'PitchDeck AI',
+    tagline: 'Pitch Deck Generator',
+    icon: Layout,
+    color: 'text-aiorange',
+    borderColor: 'border-aiorange/20',
+    bgColor: 'bg-aiorange/10',
+    glowClass: 'hover-glow-orange',
+    accentGradient: 'from-amber-500 to-orange-600',
+    category: 'Productivity',
+    web: 'https://pitchdeck-ai-beta.vercel.app',
+    mobile: null,
+    chrome: 'https://github.com/kalavathiramarao76-ui/pitchdeck-ext',
+    features: ['10-slide deck', 'Investor email', 'Elevator pitch', 'Competition matrix'],
+  },
+  {
+    name: 'PriceRadar AI',
+    tagline: 'Competitor Price Tracker',
+    icon: BarChart3,
+    color: 'text-aiblue',
+    borderColor: 'border-aiblue/20',
+    bgColor: 'bg-aiblue/10',
+    glowClass: 'hover-glow-blue',
+    accentGradient: 'from-cyan-500 to-teal-600',
+    category: 'Productivity',
+    web: null,
+    mobile: null,
+    chrome: 'https://github.com/kalavathiramarao76-ui/priceradar-ext',
+    features: ['Price analyzer', 'Comparison table', 'Dynamic pricing', 'Alert simulator'],
+  },
+  {
+    name: 'ContractLens AI',
+    tagline: 'Contract Risk Analyzer',
+    icon: Shield,
+    color: 'text-aiorange',
+    borderColor: 'border-aiorange/20',
+    bgColor: 'bg-aiorange/10',
+    glowClass: 'hover-glow-orange',
+    accentGradient: 'from-rose-500 to-red-600',
+    category: 'Productivity',
+    web: null,
+    mobile: null,
+    chrome: 'https://github.com/kalavathiramarao76-ui/contractlens-ext',
+    features: ['Risk scoring', 'Clause explainer', 'Red flag alerts', 'Contract comparison'],
+  },
+  {
+    name: 'RepoDoc AI',
+    tagline: 'Code Documentation Generator',
+    icon: Code,
+    color: 'text-aigreen',
+    borderColor: 'border-aigreen/20',
+    bgColor: 'bg-aigreen/10',
+    glowClass: 'hover-glow-green',
+    accentGradient: 'from-emerald-500 to-green-600',
+    category: 'Browser',
+    web: null,
+    mobile: null,
+    chrome: 'https://github.com/kalavathiramarao76-ui/repodoc-ext',
+    features: ['JSDoc generator', 'README writer', 'API docs', 'Changelog creator'],
+  },
 ]
 
 const FILTERS = ['All', 'LinkedIn Suite', 'DevOps', 'Productivity', 'Browser']
@@ -144,8 +240,8 @@ const PRODUCTS_SCHEMAS = [
   {
     '@type': 'CollectionPage',
     '@id': 'https://aisurgent.dev/products',
-    name: 'AISurgent Products — 8 AI-Powered Tools',
-    description: 'Browse all 8 AI products by AISurgent — from LinkedIn optimization to Kubernetes alerting, browser extensions to productivity tools.',
+    name: 'AISurgent Products — 14 AI-Powered Tools',
+    description: 'Browse all 14 AI products by AISurgent — from LinkedIn optimization to Kubernetes alerting, browser extensions to productivity tools.',
     url: 'https://aisurgent.dev/products',
     isPartOf: { '@id': 'https://aisurgent.dev/#website' },
   },
@@ -155,9 +251,9 @@ export default function Products() {
   const [activeFilter, setActiveFilter] = useState('All')
 
   useSEO({
-    title: 'Products — 8 AI-Powered Tools | AISurgent.Dev',
+    title: 'Products — 14 AI-Powered Tools | AISurgent.Dev',
     description:
-      'Browse all 8 AI products by AISurgent. LinkedIn suite, DevOps tools, productivity apps, and browser extensions — all free to try.',
+      'Browse all 14 AI products by AISurgent. LinkedIn suite, DevOps tools, productivity apps, and browser extensions — all free to try.',
     path: '/products',
     schemas: PRODUCTS_SCHEMAS,
   })
@@ -183,7 +279,7 @@ export default function Products() {
         <div className="text-center mb-16" data-aos="fade-up">
           <span className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold mb-4 block">Our Products</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            <span className="gradient-text">8 AI Products</span>
+            <span className="gradient-text">14 AI Products</span>
             <br />
             <span className="text-gray-300">Ready to Use</span>
           </h1>
