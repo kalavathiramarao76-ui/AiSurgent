@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { UserMenu } from './AuthGate'
 
 const navLinks = [
   { label: 'Products', to: '/products' },
@@ -74,6 +75,8 @@ export default function Navbar() {
               )
             )}
           </div>
+
+          <UserMenu />
 
           {/* Mobile menu toggle */}
           <button
