@@ -73,25 +73,69 @@ const HOME_SCHEMAS = [
   },
 ]
 
-/* ─── Animated Counter Hook ─── */
-function useCounter(end, duration = 2000, trigger = true) {
-  const [count, setCount] = useState(0)
+/* ─── Letter Reveal ─── */
+function LetterReveal({ text, className = '', delay = 0 }) {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
   useEffect(() => {
-    if (!trigger) return
-    let start = 0
-    const increment = end / (duration / 16)
-    const timer = setInterval(() => {
-      start += increment
-      if (start >= end) {
-        setCount(end)
-        clearInterval(timer)
-      } else {
-        setCount(Math.floor(start))
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setVisible(true); return }
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setVisible(true); obs.disconnect() }
+    }, { threshold: 0.2 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  return (
+    <span ref={ref} className={className} aria-label={text}>
+      {text.split('').map((ch, i) => (
+        <span
+          key={i}
+          className="inline-block"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(18px)',
+            transition: 'opacity 0.7s ease, transform 0.7s ease',
+            transitionDelay: visible ? `${delay + i * 32}ms` : '0ms',
+          }}
+        >
+          {ch === ' ' ? '\u00A0' : ch}
+        </span>
+      ))}
+    </span>
+  )
+}
+
+/* ─── Scroll Counter (eased, GPU-only) ─── */
+function ScrollCounter({ end, suffix = '', duration = 900 }) {
+  const ref = useRef(null)
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setValue(end); return }
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        obs.disconnect()
+        const start = performance.now()
+        const tick = (now) => {
+          const t = Math.min((now - start) / duration, 1)
+          const eased = 1 - Math.pow(1 - t, 3)
+          setValue(Math.round(eased * end))
+          if (t < 1) requestAnimationFrame(tick)
+        }
+        requestAnimationFrame(tick)
       }
-    }, 16)
-    return () => clearInterval(timer)
-  }, [end, duration, trigger])
-  return count
+    }, { threshold: 0.3 })
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [end, duration])
+
+  return <span ref={ref}>{value}{suffix}</span>
 }
 
 /* ─── Intersection Observer Hook ─── */
@@ -109,6 +153,63 @@ function useInView(threshold = 0.2) {
     return () => obs.disconnect()
   }, [threshold])
   return [ref, inView]
+}
+
+/* ─── Stagger Fade In Observer ─── */
+function useStaggerFade() {
+  const refs = useRef([])
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      refs.current.forEach(el => { if (el) { el.style.opacity = '1'; el.style.transform = 'none' } })
+      return
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = refs.current.indexOf(e.target)
+          e.target.style.transitionDelay = `${idx * 80}ms`
+          e.target.style.opacity = '1'
+          e.target.style.transform = 'translateY(0)'
+          obs.unobserve(e.target)
+        }
+      })
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' })
+    refs.current.forEach(el => { if (el) obs.observe(el) })
+    return () => obs.disconnect()
+  }, [])
+
+  const addRef = (el) => {
+    if (el && !refs.current.includes(el)) refs.current.push(el)
+  }
+  return addRef
+}
+
+/* ─── Parallax Hook (hero orb) ─── */
+function useParallax(speed = 0.15) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(() => {
+          const y = window.scrollY * speed
+          el.style.transform = `translate(-50%, calc(-50% + ${y}px))`
+          ticking = false
+        })
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [speed])
+
+  return ref
 }
 
 /* ─── Product Spotlight Data ─── */
@@ -164,23 +265,28 @@ export default function Home() {
     schemas: HOME_SCHEMAS,
   })
 
-  const [statsRef, statsInView] = useInView(0.3)
+  const orbRef = useParallax(0.15)
+  const addStaggerRef = useStaggerFade()
 
   return (
     <>
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Single subtle gradient orb — not 4 bouncing blobs */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-indigo-500/[0.04] blur-[160px]" />
+        {/* Single subtle gradient orb with parallax */}
+        <div
+          ref={orbRef}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-indigo-500/[0.04] blur-[160px]"
+          style={{ willChange: 'transform' }}
+        />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          {/* Headline — massive, Apple-scale */}
-          <div data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out">
+          {/* Headline — letter reveal */}
+          <div>
             <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-[6.5rem] font-bold tracking-tight text-white mb-8 leading-[1.05]">
-              From idea to{' '}
-              <span className="gradient-text-accent">production</span>
+              <LetterReveal text="From idea to " />
+              <span className="gradient-text-accent"><LetterReveal text="production" delay={450} /></span>
               <br />
-              in minutes.
+              <LetterReveal text="in minutes." delay={780} />
             </h1>
           </div>
 
@@ -204,34 +310,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══════════════ STATS BAR ═══════════════ */}
-      <section ref={statsRef} className="py-32 px-6 relative">
+      {/* ═══════════════ STATS BAR (scroll counters) ═══════════════ */}
+      <section className="py-32 px-6 relative">
         <div className="section-divider mb-20" />
         <div className="max-w-3xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            {statsData.map((stat, i) => {
-              const count = useCounter(stat.value, 1500, statsInView)
-              return (
-                <div key={stat.label} data-aos="fade-up" data-aos-delay={i * 100} data-aos-duration="1000" data-aos-easing="ease-out" className="text-center">
-                  <div className="text-5xl sm:text-6xl font-bold text-white mb-3 tracking-tight">
-                    {count}{stat.suffix}
-                  </div>
-                  <div className="text-xs text-gray-500 uppercase tracking-[0.2em]">{stat.label}</div>
+            {statsData.map((stat, i) => (
+              <div key={stat.label} data-aos="fade-up" data-aos-delay={i * 100} data-aos-duration="1000" data-aos-easing="ease-out" className="text-center">
+                <div className="text-5xl sm:text-6xl font-bold text-white mb-3 tracking-tight">
+                  <ScrollCounter end={stat.value} duration={1000} suffix={stat.suffix} />
                 </div>
-              )
-            })}
+                <div className="text-xs text-gray-500 uppercase tracking-[0.2em]">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
         <div className="section-divider mt-20" />
       </section>
 
-      {/* ═══════════════ PRODUCT SPOTLIGHTS ═══════════════ */}
+      {/* ═══════════════ PRODUCT SPOTLIGHTS (stagger 80ms) ═══════════════ */}
       <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-24" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out">
             <span className="text-xs uppercase tracking-[0.2em] text-gray-600 font-medium mb-6 block">Product Spotlight</span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-              AI tools that just work
+              <LetterReveal text="AI tools that just work" />
             </h2>
           </div>
 
@@ -241,10 +344,14 @@ export default function Home() {
               return (
                 <div
                   key={product.name}
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-easing="ease-out"
+                  ref={addStaggerRef}
                   className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-24`}
+                  style={{
+                    opacity: 0,
+                    transform: 'translateY(24px)',
+                    transition: 'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+                    willChange: 'transform, opacity',
+                  }}
                 >
                   {/* Text */}
                   <div className="flex-1 space-y-6">
@@ -289,8 +396,6 @@ export default function Home() {
       {/* ═══════════════ TUTORIALS ═══════════════ */}
       <Tutorials />
 
-      {/* ═══════════════ TESTIMONIALS — removed, replaced with simpler social proof ═══════════════ */}
-
       {/* ═══════════════ INSIDERS CLUB ═══════════════ */}
       <InsidersClub />
 
@@ -301,7 +406,8 @@ export default function Home() {
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <div data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight">
-              Start building<br />with AI today.
+              <LetterReveal text="Start building" /><br />
+              <LetterReveal text="with AI today." delay={430} />
             </h2>
             <p className="text-xl text-gray-400 mb-12 max-w-xl mx-auto font-normal">
               Every product is live. No sign-ups, no credit cards. Just start.
