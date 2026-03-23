@@ -168,10 +168,7 @@ export default function ProductsHighlight() {
                       key={p.slug}
                       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.02] text-sm text-gray-300"
                     >
-                      <span
-                        className="w-2 h-2 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: p.color }}
-                      />
+                      <img src={p.logo} alt={p.name} className="w-5 h-5 rounded flex-shrink-0" />
                       {p.name}
                     </span>
                   ))}

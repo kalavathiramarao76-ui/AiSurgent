@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0891b2"/>
+      <stop offset="100%" stop-color="#164e63"/>
+    </linearGradient>
+    <linearGradient id="bg-sheen" x1="0" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#164e63" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="iris-grad" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#cffafe" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#a5f3fc" stop-opacity="0.5"/>
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="intense-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <clipPath id="eye-clip">
+      <path d="M14 64 Q40 28 64 28 Q88 28 114 64 Q88 100 64 100 Q40 100 14 64 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <rect width="128" height="128" rx="28" fill="url(#bg-sheen)"/>
+
+  <!-- Hawk eye shape -->
+  <g filter="url(#shadow)">
+    <path d="M14 64 Q40 28 64 28 Q88 28 114 64 Q88 100 64 100 Q40 100 14 64 Z"
+          fill="#ffffff" opacity="0.15" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M22 64 Q42 36 64 36 Q86 36 106 64 Q86 92 64 92 Q42 92 22 64 Z"
+          fill="#ffffff" opacity="0.12"/>
+  </g>
+
+  <!-- Iris with ring pattern -->
+  <g filter="url(#glow)">
+    <circle cx="64" cy="64" r="24" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="64" cy="64" r="18" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    <circle cx="64" cy="64" r="12" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    <circle cx="64" cy="64" r="24" fill="url(#iris-grad)" opacity="0.2"/>
+
+    <!-- Iris texture lines -->
+    <g stroke="#ffffff" stroke-width="0.6" opacity="0.15" clip-path="url(#eye-clip)">
+      <line x1="64" y1="40" x2="64" y2="88"/>
+      <line x1="44" y1="44" x2="84" y2="84"/>
+      <line x1="40" y1="64" x2="88" y2="64"/>
+      <line x1="44" y1="84" x2="84" y2="44"/>
+      <line x1="48" y1="42" x2="80" y2="86"/>
+      <line x1="48" y1="86" x2="80" y2="42"/>
+      <line x1="40" y1="52" x2="88" y2="76"/>
+      <line x1="40" y1="76" x2="88" y2="52"/>
+    </g>
+  </g>
+
+  <!-- Pupil as price tag shape -->
+  <g filter="url(#intense-glow)">
+    <path d="M58 58 L70 58 L72 64 L70 70 L58 70 Z" fill="#ffffff" opacity="0.9"/>
+    <path d="M70 58 L72 64 L70 70" fill="#0891b2" opacity="0.5"/>
+    <circle cx="60.5" cy="64" r="1.8" fill="#164e63" opacity="0.6"/>
+    <rect x="63" y="60" width="5" height="1.5" rx="0.75" fill="#ffffff" opacity="0.3"/>
+    <rect x="63" y="63" width="4" height="1.5" rx="0.75" fill="#ffffff" opacity="0.2"/>
+  </g>
+
+  <!-- Fierce eyebrow line -->
+  <g filter="url(#shadow)">
+    <path d="M20 42 Q40 22 64 24 Q88 22 108 42"
+          stroke="#ffffff" stroke-width="3.5" fill="none" opacity="0.8" stroke-linecap="round"/>
+    <path d="M18 40 Q30 26 44 24"
+          stroke="#ffffff" stroke-width="4" fill="none" opacity="0.5" stroke-linecap="round"/>
+    <path d="M110 40 Q98 26 84 24"
+          stroke="#ffffff" stroke-width="4" fill="none" opacity="0.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Scan/radar lines -->
+  <g stroke="#ffffff" fill="none" opacity="0.2" stroke-width="1">
+    <path d="M12 64 Q10 50 14 40" stroke-linecap="round"/>
+    <path d="M116 64 Q118 50 114 40" stroke-linecap="round"/>
+    <path d="M12 64 Q10 78 14 88" stroke-linecap="round"/>
+    <path d="M116 64 Q118 78 114 88" stroke-linecap="round"/>
+  </g>
+
+  <!-- Corner scan brackets -->
+  <g stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.25" stroke-linecap="round">
+    <path d="M20 30 L20 22 L28 22"/>
+    <path d="M108 22 L108 30"/>
+    <path d="M100 22 L108 22"/>
+    <path d="M20 98 L20 106 L28 106"/>
+    <path d="M100 106 L108 106 L108 98"/>
+  </g>
+</svg>

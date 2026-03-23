@@ -61,12 +61,15 @@ export default function AIProductsSection() {
               <div className="p-6">
                 {/* Header row */}
                 <div className="flex items-center gap-3 mb-3">
-                  <div
-                    className="w-3 h-3 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: product.color }}
+                  <img
+                    src={product.logo}
+                    alt={product.name}
+                    className="w-10 h-10 rounded-xl flex-shrink-0"
                   />
-                  <h3 className="font-bold text-lg">{product.name}</h3>
-                  <span className="ml-auto text-xs text-gray-500">{product.tagline}</span>
+                  <div>
+                    <h3 className="font-bold text-base leading-tight">{product.name}</h3>
+                    <span className="text-xs text-gray-500">{product.tagline}</span>
+                  </div>
                 </div>
 
                 {/* Description */}

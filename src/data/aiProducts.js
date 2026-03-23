@@ -2,6 +2,7 @@ export const aiProducts = [
   {
     slug: "contextify",
     name: "Contextify",
+    logo: "/logos/contextify.svg",
     tagline: "AI Text Decoder",
     description: "Detect manipulation, red flags, hidden meanings in any text. Manipulation score 0-100, risk levels, tone analysis.",
     color: "#0D9488",
@@ -14,6 +15,7 @@ export const aiProducts = [
   },
   {
     slug: "sixforge",
+    logo: "/logos/sixforge.svg",
     name: "SixForge",
     tagline: "6-in-1 AI Writing Suite",
     description: "Email writer, meeting summarizer, code reviewer (14 langs), blog generator, product copywriter, tweet threads.",
@@ -27,6 +29,7 @@ export const aiProducts = [
   },
   {
     slug: "profiluxai",
+    logo: "/logos/profiluxai.svg",
     name: "ProfiluxAI",
     tagline: "LinkedIn Profile Optimizer",
     description: "5-section profile scoring, 10 headline alternatives, AI summary writer in 3 tones, radar chart visualization.",
@@ -40,6 +43,7 @@ export const aiProducts = [
   },
   {
     slug: "quillnova",
+    logo: "/logos/quillnova.svg",
     name: "Quillnova",
     tagline: "LinkedIn Post Generator",
     description: "6 writing styles, 10 languages, hook generator, hashtag engine, LinkedIn preview mockup, 8 templates.",
@@ -53,6 +57,7 @@ export const aiProducts = [
   },
   {
     slug: "engagix",
+    logo: "/logos/engagix.svg",
     name: "Engagix",
     tagline: "LinkedIn Post Optimizer",
     description: "Engagement scoring (0-100), A/B variant generation, hook rewriter, viral prediction with factor analysis.",
@@ -66,6 +71,7 @@ export const aiProducts = [
   },
   {
     slug: "kubesignal",
+    logo: "/logos/kubesignal.svg",
     name: "KubeSignal",
     tagline: "K8s Alert Analyzer",
     description: "Alert analysis, runbook generation for 12 K8s types, multi-alert correlation, P0-P4 severity classification.",
@@ -79,6 +85,7 @@ export const aiProducts = [
   },
   {
     slug: "incidentiq",
+    logo: "/logos/incidentiq.svg",
     name: "IncidentIQ",
     tagline: "Alert Triage & Incident Classifier",
     description: "P0-P4 priority classification, noise detection, root cause analysis, escalation paths, Slack summaries.",
@@ -92,6 +99,7 @@ export const aiProducts = [
   },
   {
     slug: "autensa",
+    logo: "/logos/autensa.svg",
     name: "Autensa",
     tagline: "Agentic AI Assistant",
     description: "Real tool execution — GitHub repos/issues/PRs, Vercel deployments, multi-step reasoning with Claude + Ollama.",
@@ -104,6 +112,7 @@ export const aiProducts = [
   },
   {
     slug: "clauseguard",
+    logo: "/logos/clauseguard.svg",
     name: "ClauseGuard",
     tagline: "Contract Risk Analyzer",
     description: "Risk scoring 1-10, plain English explainer, contract comparison. DocuSign, LegalZoom, Google Docs integration.",
@@ -117,6 +126,7 @@ export const aiProducts = [
   },
   {
     slug: "billcraft",
+    logo: "/logos/billcraft.svg",
     name: "BillCraft",
     tagline: "AI Invoice Generator",
     description: "Professional invoices, proposals, contracts. 8 currencies, 6 templates, HTML export. Upwork/Fiverr integration.",
@@ -130,6 +140,7 @@ export const aiProducts = [
   },
   {
     slug: "pricehawk",
+    logo: "/logos/pricehawk.svg",
     name: "PriceHawk",
     tagline: "AI Price Tracker",
     description: "Price analysis, product comparison, dynamic pricing, 30-day predictions. Amazon, eBay, Walmart, Best Buy, Shopify.",
@@ -143,6 +154,7 @@ export const aiProducts = [
   },
   {
     slug: "deckforge",
+    logo: "/logos/deckforge.svg",
     name: "DeckForge",
     tagline: "AI Pitch Deck Generator",
     description: "10-slide pitch decks, investor emails, pitch scripts, competition matrices. Crunchbase & AngelList integration.",
@@ -156,6 +168,7 @@ export const aiProducts = [
   },
   {
     slug: "epicclip",
+    logo: "/logos/epicclip.svg",
     name: "EpicClip",
     tagline: "Podcast Repurposer",
     description: "Repurpose podcasts into 6 formats: summaries, clips, LinkedIn posts, Twitter threads, newsletters, show notes.",
@@ -169,6 +182,7 @@ export const aiProducts = [
   },
   {
     slug: "codescribe",
+    logo: "/logos/codescribe.svg",
     name: "CodeScribe",
     tagline: "Code Documentation Generator",
     description: "JSDoc, README, API docs, architecture analysis, changelogs. GitHub, GitLab, Bitbucket integration.",
