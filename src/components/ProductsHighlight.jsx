@@ -1,5 +1,6 @@
-import { Chrome, Shield, Brain, Search, ArrowRight, ExternalLink } from 'lucide-react'
+import { Chrome, Shield, Brain, Search, ArrowRight, ExternalLink, Layers } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { aiProducts } from '../data/aiProducts'
 
 const CHROME_STORE_URL =
   'https://chromewebstore.google.com/detail/jabiidnhodnkkjfkohgpdddeakhfabdk'
@@ -132,6 +133,53 @@ export default function ProductsHighlight() {
               >
                 Chrome Web Store <ExternalLink size={10} />
               </a>
+            </div>
+          </div>
+        </div>
+
+        {/* AI Product Suite card */}
+        <div data-aos="fade-up" data-aos-delay="200" className="gradient-border mt-8">
+          <div className="bg-[hsl(240,10%,3.9%)] rounded-lg overflow-hidden p-8 md:p-10">
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-aipurple/10 border border-aipurple/20 flex items-center justify-center">
+                    <Layers size={24} className="text-aipurple" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold">AI Product Suite &mdash; 14 Products</h3>
+                    <p className="text-xs text-gray-500">Chrome extensions, mobile apps &amp; web platforms</p>
+                  </div>
+                </div>
+                <p className="text-gray-400 mb-6 leading-relaxed">
+                  Chrome extensions, mobile apps &amp; web platforms for LinkedIn, DevOps, business &amp; more.
+                </p>
+                <Link
+                  to="/products"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-aiblue via-aipurple to-aiorange hover:-translate-y-0.5 transition-transform"
+                >
+                  View All Products <ArrowRight size={14} />
+                </Link>
+              </div>
+              <div className="flex-1">
+                <div className="flex flex-wrap gap-2">
+                  {aiProducts.slice(0, 5).map((p) => (
+                    <span
+                      key={p.slug}
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.02] text-sm text-gray-300"
+                    >
+                      <span
+                        className="w-2 h-2 rounded-full flex-shrink-0"
+                        style={{ backgroundColor: p.color }}
+                      />
+                      {p.name}
+                    </span>
+                  ))}
+                  <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.02] text-sm text-gray-500">
+                    +9 more
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

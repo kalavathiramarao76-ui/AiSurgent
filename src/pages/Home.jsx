@@ -6,6 +6,7 @@ import Tutorials from '../components/Tutorials'
 import Stats from '../components/Stats'
 import InsidersClub from '../components/InsidersClub'
 import ProductsHighlight from '../components/ProductsHighlight'
+import AIProductsSection from '../components/AIProductsSection'
 import Contact from '../components/Contact'
 
 const HOME_SCHEMAS = [
@@ -89,6 +90,7 @@ export default function Home() {
       <Tutorials />
       <Stats />
       <ProductsHighlight />
+      <AIProductsSection />
       <InsidersClub />
       <Contact />
     </>
