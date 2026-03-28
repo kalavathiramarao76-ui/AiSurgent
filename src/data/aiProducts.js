@@ -194,11 +194,26 @@ export const aiProducts = [
     mobile: "https://github.com/kalavathiramarao76-ui/repodoc-mobile",
     highlights: ["JSDoc Gen", "README Gen", "API Docs", "GitHub"],
   },
+  {
+    slug: "zypply",
+    logo: "/logos/zypply.svg",
+    name: "Zypply",
+    tagline: "AI Career Copilot",
+    description: "AI-powered resume tailoring, cover letters, ATS scoring, interview prep, company intel, and salary data. Land your dream job in seconds, not hours.",
+    color: "#6366f1",
+    gradient: "from-indigo-500 to-pink-500",
+    category: "career",
+    web: "https://applypilot-live.vercel.app",
+    extension: "https://github.com/kalavathiramarao76-ui/applypilot",
+    mobile: "https://github.com/kalavathiramarao76-ui/applypilot",
+    highlights: ["ATS Scoring", "Resume Tailoring", "Cover Letters", "Interview Prep"],
+  },
 ];
 
 export const categories = [
-  { id: "all", label: "All Products", count: 14 },
+  { id: "all", label: "All Products", count: 15 },
   { id: "productivity", label: "Productivity", count: 2 },
+  { id: "career", label: "Career", count: 1 },
   { id: "linkedin", label: "LinkedIn Growth", count: 3 },
   { id: "devops", label: "DevOps & SRE", count: 3 },
   { id: "business", label: "Business", count: 4 },

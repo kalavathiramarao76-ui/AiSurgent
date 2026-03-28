@@ -23,7 +23,7 @@ export default function Hero() {
         </div>
 
         <div data-aos="fade-up" data-aos-delay="100">
-          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
             Learn faster with weekly tutorials, insider workflows, and resource packs for Claude, ADK, Codex, and beyond.
           </p>
         </div>

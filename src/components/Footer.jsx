@@ -23,7 +23,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <span className="text-xl font-bold text-gradient">AISurgent.Dev</span>
+            <div className="flex items-center gap-2.5">
+              <img src="/favicon.svg" alt="AISurgent" className="h-7 w-7" />
+              <span className="text-xl font-bold text-gradient">AISurgent.Dev</span>
+            </div>
             <p className="mt-3 text-sm text-gray-400 max-w-xs">
               Exploring the frontiers of AI-assisted development with practical tutorials, open-source projects, and educational content.
             </p>

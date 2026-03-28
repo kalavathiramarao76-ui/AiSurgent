@@ -147,7 +147,7 @@ export default function ProductsHighlight() {
                     <Layers size={24} className="text-aipurple" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">AI Product Suite &mdash; 14 Products</h3>
+                    <h3 className="text-xl font-bold">AI Product Suite &mdash; 15 Products</h3>
                     <p className="text-xs text-gray-500">Chrome extensions, mobile apps &amp; web platforms</p>
                   </div>
                 </div>
