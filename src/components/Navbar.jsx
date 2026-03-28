@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { motion, useMotionValueEvent, useScroll, useReducedMotion } from 'framer-motion'
 
 const navLinks = [
   { label: 'Tutorials', href: '/#tutorials' },
@@ -15,13 +16,27 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
   const location = useLocation()
+  const prefersReducedMotion = useReducedMotion()
+  const { scrollY } = useScroll()
+  const lastScrollY = useRef(0)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => setScrolled(window.scrollY > 80)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = lastScrollY.current
+    if (latest > 300 && latest > previous) {
+      setHidden(true)
+    } else {
+      setHidden(false)
+    }
+    lastScrollY.current = latest
+  })
 
   useEffect(() => {
     setIsOpen(false)
@@ -38,17 +53,22 @@ export default function Navbar() {
   }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <motion.nav
+      animate={{ y: hidden ? '-100%' : '0%' }}
+      transition={{
+        duration: prefersReducedMotion ? 0 : 0.3,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300 ease-out ${
         scrolled
-          ? 'glass border-b border-white/5'
-          : 'bg-transparent'
+          ? 'bg-[rgba(10,10,10,0.8)] backdrop-blur-[12px] border-b border-white/[0.06]'
+          : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
+          <Link to="/" className="flex items-center gap-2.5">
             <img src="/favicon.svg" alt="AISurgent" className="h-8 w-8" />
             <span className="text-xl font-bold text-gradient">AISurgent.Dev</span>
           </Link>
@@ -60,7 +80,7 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
+                  className="text-sm text-white/50 hover:text-white/100 transition-opacity duration-150"
                 >
                   {link.label}
                 </Link>
@@ -69,7 +89,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-sm text-gray-300 hover:text-white transition-colors"
+                  className="text-sm text-white/50 hover:text-white/100 transition-opacity duration-150"
                 >
                   {link.label}
                 </a>
@@ -88,7 +108,7 @@ export default function Navbar() {
 
         {/* Mobile nav */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-white/5">
+          <div className="md:hidden pb-4 border-t border-white/[0.06]">
             <div className="flex flex-col gap-2 pt-4">
               {navLinks.map((link) =>
                 link.to ? (
@@ -114,6 +134,6 @@ export default function Navbar() {
           </div>
         )}
       </div>
-    </nav>
+    </motion.nav>
   )
 }

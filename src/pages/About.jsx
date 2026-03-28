@@ -61,7 +61,7 @@ export default function About() {
     <section className="pt-32 pb-24 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Hero */}
-        <div className="text-center mb-16" data-aos="fade-up">
+        <div className="text-center mb-16">
           <div className="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-aiblue via-aipurple to-aiorange p-[3px]">
             <div className="w-full h-full rounded-full bg-[hsl(240,10%,3.9%)] flex items-center justify-center text-3xl font-bold text-gradient">
               SB
@@ -76,7 +76,7 @@ export default function About() {
         </div>
 
         {/* Bio */}
-        <div className="space-y-6 mb-16" data-aos="fade-up" data-aos-delay="100">
+        <div className="space-y-6 mb-16">
           <p className="text-gray-300 leading-relaxed">
             Hi, I'm <strong className="text-white">Saikiran Bali</strong>. I've spent years building and scaling software solutions, driven by a deep passion for AI and emerging technologies.
           </p>
@@ -89,7 +89,7 @@ export default function About() {
         </div>
 
         {/* Credentials */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16" data-aos="fade-up" data-aos-delay="200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {credentials.map((cred) => (
             <div key={cred.label} className="text-center p-4 rounded-xl border border-white/5 bg-white/[0.02]">
               <cred.icon size={24} className="text-aipurple mx-auto mb-2" />
@@ -99,7 +99,7 @@ export default function About() {
         </div>
 
         {/* CTA */}
-        <div className="text-center" data-aos="fade-up" data-aos-delay="300">
+        <div className="text-center">
           <a
             href="/#tutorials"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-aiblue via-aipurple to-aiorange hover:-translate-y-0.5 transition-transform"

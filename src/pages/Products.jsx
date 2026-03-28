@@ -368,7 +368,7 @@ export default function Products() {
       <div className="max-w-6xl mx-auto">
 
         {/* ── Hero ── */}
-        <div className="text-center mb-20" data-aos="fade-up">
+        <div className="text-center mb-20">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs text-gray-400 mb-6">
             <Chrome size={13} className="text-aiblue" />
@@ -422,7 +422,7 @@ export default function Products() {
         </div>
 
         {/* ── What is RagTab ── */}
-        <div className="mb-20 gradient-border" data-aos="fade-up">
+        <div className="mb-20 card-border">
           <div className="bg-[hsl(240,10%,3.9%)] p-8 md:p-10 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">
               What is <span className="text-gradient">RagTab</span>?
@@ -455,15 +455,15 @@ export default function Products() {
 
         {/* ── How It Works ── */}
         <div className="mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">
             How It Works
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {howItWorks.map((step, i) => (
               <div
                 key={step.step}
-                data-aos="fade-up"
-                data-aos-delay={i * 75}
+               
+               
                 className="relative p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-aiblue/20 transition-all"
               >
                 <div className="text-4xl font-bold text-aiblue/20 mb-3">{step.step}</div>
@@ -481,7 +481,7 @@ export default function Products() {
 
         {/* ── Tab Manager Features ── */}
         <div className="mb-20">
-          <div className="flex items-center gap-3 mb-3" data-aos="fade-up">
+          <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-lg bg-aiblue/10 flex items-center justify-center">
               <Monitor size={18} className="text-aiblue" />
             </div>
@@ -489,10 +489,10 @@ export default function Products() {
               Tab Manager
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Every tab management feature you need
           </h2>
-          <p className="text-gray-400 mb-10 max-w-2xl" data-aos="fade-up">
+          <p className="text-gray-400 mb-10 max-w-2xl">
             Live search, multi-window view, drag &amp; drop, bulk actions, keyboard navigation,
             duplicate detection, and session management — all in one 780px popup.
           </p>
@@ -500,8 +500,8 @@ export default function Products() {
             {tabManagerFeatures.map((feat, i) => (
               <div
                 key={feat.title}
-                data-aos="fade-up"
-                data-aos-delay={i * 50}
+               
+               
                 className="p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-aiblue/20 transition-all"
               >
                 <feat.icon size={20} className="text-aiblue mb-3" />
@@ -513,7 +513,7 @@ export default function Products() {
 
           {/* Keyboard shortcuts callout */}
           <div
-            data-aos="fade-up"
+           
             className="mt-6 p-5 rounded-xl border border-white/5 bg-white/[0.02]"
           >
             <h3 className="font-semibold mb-3 flex items-center gap-2">
@@ -541,7 +541,7 @@ export default function Products() {
 
         {/* ── AI Chat Features ── */}
         <div className="mb-20">
-          <div className="flex items-center gap-3 mb-3" data-aos="fade-up">
+          <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-lg bg-aipurple/10 flex items-center justify-center">
               <Brain size={18} className="text-aipurple" />
             </div>
@@ -549,10 +549,10 @@ export default function Products() {
               AI RAG Search
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Ask anything about your open tabs
           </h2>
-          <p className="text-gray-400 mb-6 max-w-2xl" data-aos="fade-up">
+          <p className="text-gray-400 mb-6 max-w-2xl">
             RagTab uses Retrieval-Augmented Generation (RAG) to answer questions like{' '}
             <em>"Which tab had that React Server Components article?"</em> or{' '}
             <em>"Summarise everything I've read about climate policy today"</em>.
@@ -561,8 +561,8 @@ export default function Products() {
             {aiFeatures.map((feat, i) => (
               <div
                 key={feat.title}
-                data-aos="fade-up"
-                data-aos-delay={i * 50}
+               
+               
                 className="p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-aipurple/20 transition-all"
               >
                 <feat.icon size={20} className="text-aipurple mb-3" />
@@ -574,7 +574,7 @@ export default function Products() {
 
           {/* RAG pipeline visual */}
           <div
-            data-aos="fade-up"
+           
             className="p-6 rounded-xl border border-white/5 bg-white/[0.02]"
           >
             <h3 className="font-semibold mb-4 text-sm text-gray-400 uppercase tracking-widest">
@@ -607,10 +607,10 @@ export default function Products() {
 
         {/* ── AI Providers ── */}
         <div className="mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
             Works with your AI provider
           </h2>
-          <p className="text-gray-400 text-center max-w-xl mx-auto mb-10" data-aos="fade-up">
+          <p className="text-gray-400 text-center max-w-xl mx-auto mb-10">
             RagTab supports three AI providers out of the box. Bring your own API key — switch
             any time from the settings panel.
           </p>
@@ -618,8 +618,8 @@ export default function Products() {
             {providers.map((p, i) => (
               <div
                 key={p.name}
-                data-aos="fade-up"
-                data-aos-delay={i * 75}
+               
+               
                 className={`p-6 rounded-xl border ${p.border} ${p.bg} hover:bg-white/[0.04] transition-all`}
               >
                 <div className="flex items-center justify-between mb-4">
@@ -651,7 +651,7 @@ export default function Products() {
 
         {/* ── Privacy First ── */}
         <div className="mb-20">
-          <div className="text-center mb-10" data-aos="fade-up">
+          <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-500/20 bg-green-500/5 text-green-400 text-xs mb-4">
               <Shield size={13} /> Privacy First
             </div>
@@ -663,8 +663,8 @@ export default function Products() {
             {privacyPoints.map((pt, i) => (
               <div
                 key={pt.title}
-                data-aos="fade-up"
-                data-aos-delay={i * 50}
+               
+               
                 className="flex items-start gap-4 p-5 rounded-xl border border-green-500/10 bg-green-500/[0.03]"
               >
                 <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
@@ -681,13 +681,13 @@ export default function Products() {
 
         {/* ── Pricing ── */}
         <div className="mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">
             Free to start, Pro when you're ready
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Free */}
             <div
-              data-aos="fade-up"
+             
               className="p-6 rounded-xl border border-white/5 bg-white/[0.02]"
             >
               <div className="mb-4">
@@ -714,7 +714,7 @@ export default function Products() {
             </div>
 
             {/* Pro */}
-            <div data-aos="fade-up" data-aos-delay="75" className="gradient-border">
+            <div className="card-border">
               <div className="bg-[hsl(240,10%,3.9%)] p-6 rounded-lg h-full">
                 <div className="mb-4">
                   <div className="flex items-center justify-between">
@@ -750,7 +750,7 @@ export default function Products() {
         </div>
 
         {/* ── Install CTA ── */}
-        <div data-aos="fade-up" className="gradient-border">
+        <div className="card-border">
           <div className="bg-[hsl(240,10%,3.9%)] p-10 rounded-lg text-center">
             <Chrome size={40} className="text-aiblue mx-auto mb-4" />
             <h2 className="text-2xl sm:text-3xl font-bold mb-3">
@@ -800,7 +800,7 @@ function AIProductSuiteSection() {
   return (
     <div className="mt-24">
       {/* Header */}
-      <div className="text-center mb-12" data-aos="fade-up">
+      <div className="text-center mb-12">
         <span className="text-xs uppercase tracking-widest text-aiorange font-semibold">
           Full Suite
         </span>
@@ -813,8 +813,8 @@ function AIProductSuiteSection() {
       {/* Category filters */}
       <div
         className="flex flex-wrap justify-center gap-2 mb-12"
-        data-aos="fade-up"
-        data-aos-delay="50"
+       
+       
       >
         {categories.map((cat) => (
           <button
@@ -837,8 +837,8 @@ function AIProductSuiteSection() {
         {filtered.map((product, i) => (
           <div
             key={product.slug}
-            data-aos="fade-up"
-            data-aos-delay={i * 50}
+           
+           
             className="group rounded-xl border border-white/5 bg-[hsl(240,10%,3.9%)] hover:border-white/10 transition-all overflow-hidden"
           >
             <div className="p-6">

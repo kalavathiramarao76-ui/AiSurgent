@@ -97,7 +97,7 @@ export default function Consulting() {
     <section className="pt-32 pb-24 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Hero */}
-        <div className="text-center mb-20" data-aos="fade-up">
+        <div className="text-center mb-20">
           <h1 className="text-4xl sm:text-5xl font-bold mb-6">
             Stuck on how to integrate{' '}
             <span className="text-gradient">AI</span> into your product?
@@ -112,15 +112,15 @@ export default function Consulting() {
 
         {/* What I Help With */}
         <div id="what-i-help-with" className="mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
             What I Help With
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {helpWith.map((item, i) => (
               <div
                 key={item.title}
-                data-aos="fade-up"
-                data-aos-delay={i * 50}
+               
+               
                 className="p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-aiblue/20 transition-all"
               >
                 <item.icon size={22} className="text-aiblue mb-3" />
@@ -133,15 +133,15 @@ export default function Consulting() {
 
         {/* Who This Is For */}
         <div id="who-this-is-for" className="mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
             Who This Is For
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {whoFor.map((item, i) => (
               <div
                 key={item.title}
-                data-aos="fade-up"
-                data-aos-delay={i * 50}
+               
+               
                 className="flex items-start gap-4 p-5 rounded-xl border border-white/5 bg-white/[0.02]"
               >
                 <div className="w-10 h-10 rounded-lg bg-aipurple/10 flex items-center justify-center flex-shrink-0">
@@ -158,13 +158,13 @@ export default function Consulting() {
 
         {/* Ways to Work With Me */}
         <div id="ways-to-work" className="mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center" data-aos="fade-up">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
             Ways to Work With Me
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Free call */}
-            <div data-aos="fade-up" className="gradient-border">
+            <div className="card-border">
               <div className="bg-[hsl(240,10%,3.9%)] p-6 rounded-lg h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <Video size={22} className="text-aigreen" />
@@ -178,7 +178,7 @@ export default function Consulting() {
             </div>
 
             {/* Paid session */}
-            <div data-aos="fade-up" data-aos-delay="100" className="gradient-border">
+            <div className="card-border">
               <div className="bg-[hsl(240,10%,3.9%)] p-6 rounded-lg h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <Clock size={22} className="text-aiblue" />
@@ -199,7 +199,7 @@ export default function Consulting() {
           </div>
 
           {/* Email CTA */}
-          <div className="mt-8 text-center" data-aos="fade-up" data-aos-delay="200">
+          <div className="mt-8 text-center">
             <p className="text-gray-400 mb-3">Prefer email? Happy to answer questions or scope async.</p>
             <a
               href="mailto:consulting@aisurgent.dev"
@@ -211,7 +211,7 @@ export default function Consulting() {
         </div>
 
         {/* Resource Pack CTA */}
-        <div data-aos="fade-up" className="gradient-border">
+        <div className="card-border">
           <div className="bg-[hsl(240,10%,3.9%)] p-8 rounded-lg text-center">
             <h3 className="text-xl font-bold mb-3">Your AI Agent Shortcut: Resource Pack #1</h3>
             <p className="text-gray-400 max-w-lg mx-auto mb-6">

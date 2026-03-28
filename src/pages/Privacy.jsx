@@ -134,7 +134,7 @@ export default function Privacy() {
       <div className="max-w-4xl mx-auto">
 
         {/* Hero */}
-        <div className="text-center mb-16" data-aos="fade-up">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-aiblue/30 bg-aiblue/10 text-aiblue text-sm font-medium mb-6">
             <Shield size={14} />
             Privacy Policy
@@ -150,7 +150,7 @@ export default function Privacy() {
         </div>
 
         {/* Privacy Highlights */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16" data-aos="fade-up" data-aos-delay="100">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {privacyHighlights.map((item) => (
             <div
               key={item.label}
@@ -170,8 +170,8 @@ export default function Privacy() {
             return (
               <div
                 key={section.title}
-                data-aos="fade-up"
-                data-aos-delay={i * 60}
+               
+               
                 className={`p-6 rounded-xl border ${colors.border} bg-white/[0.02] ${colors.hover} transition-all`}
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -194,7 +194,7 @@ export default function Privacy() {
         </div>
 
         {/* Summary Table */}
-        <div className="mb-16" data-aos="fade-up">
+        <div className="mb-16">
           <h2 className="text-xl font-semibold text-white mb-5">At a Glance</h2>
           <div className="rounded-xl border border-white/10 overflow-hidden">
             <table className="w-full text-sm">
@@ -225,7 +225,7 @@ export default function Privacy() {
         {/* Contact */}
         <div
           className="p-6 rounded-xl border border-aipurple/20 bg-aipurple/[0.05] hover:border-aipurple/40 transition-all"
-          data-aos="fade-up"
+         
         >
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2 rounded-lg bg-aipurple/10">
@@ -246,7 +246,7 @@ export default function Privacy() {
         </div>
 
         {/* Footer note */}
-        <p className="mt-10 text-center text-xs text-gray-600" data-aos="fade-up">
+        <p className="mt-10 text-center text-xs text-gray-600">
           This privacy policy applies to the RagTab Chrome extension. It may be updated from time to time — significant changes will be communicated via the extension update notes.
         </p>
       </div>

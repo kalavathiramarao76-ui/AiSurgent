@@ -1,6 +1,4 @@
 import { Routes, Route } from 'react-router-dom'
-import { useEffect } from 'react'
-import AOS from 'aos'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -11,14 +9,6 @@ import Products from './pages/Products'
 import NotFound from './pages/NotFound'
 
 function App() {
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      once: false,
-    })
-  }, [])
-
   return (
     <Layout>
       <Routes>

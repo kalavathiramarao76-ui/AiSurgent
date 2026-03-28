@@ -18,7 +18,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-black/30">
+    <footer className="border-t border-white/[0.06] bg-black/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
@@ -68,7 +68,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+                  className="p-2 rounded-lg opacity-50 hover:opacity-100 transition-opacity duration-150"
                   title={link.label}
                 >
                   <link.icon size={20} />

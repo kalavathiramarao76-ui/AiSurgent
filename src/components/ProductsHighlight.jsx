@@ -35,7 +35,7 @@ export default function ProductsHighlight() {
       <div className="max-w-6xl mx-auto">
 
         {/* Section label */}
-        <div className="text-center mb-12" data-aos="fade-up">
+        <div className="text-center mb-12">
           <span className="text-xs uppercase tracking-widest text-aiorange font-semibold">
             Products
           </span>
@@ -48,7 +48,7 @@ export default function ProductsHighlight() {
         </div>
 
         {/* RagTab card */}
-        <div data-aos="fade-up" data-aos-delay="100" className="gradient-border">
+        <div className="card-border">
           <div className="bg-[hsl(240,10%,3.9%)] rounded-lg overflow-hidden">
             <div className="p-8 md:p-10">
               <div className="flex flex-col lg:flex-row gap-10">
@@ -81,7 +81,7 @@ export default function ProductsHighlight() {
                       href={CHROME_STORE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-aiblue via-aipurple to-aiorange hover:-translate-y-0.5 transition-transform"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm bg-white text-black hover:bg-white/90 transition-colors"
                     >
                       <Chrome size={15} /> Install Free
                     </a>
@@ -138,7 +138,7 @@ export default function ProductsHighlight() {
         </div>
 
         {/* AI Product Suite card */}
-        <div data-aos="fade-up" data-aos-delay="200" className="gradient-border mt-8">
+        <div className="card-border mt-8">
           <div className="bg-[hsl(240,10%,3.9%)] rounded-lg overflow-hidden p-8 md:p-10">
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex-1">
@@ -156,7 +156,7 @@ export default function ProductsHighlight() {
                 </p>
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white bg-gradient-to-r from-aiblue via-aipurple to-aiorange hover:-translate-y-0.5 transition-transform"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm bg-white text-black hover:bg-white/90 transition-colors"
                 >
                   View All Products <ArrowRight size={14} />
                 </Link>

@@ -1,4 +1,5 @@
 import { Play, Clock, ExternalLink } from 'lucide-react'
+import { Reveal, RevealStagger, RevealItem } from './motion/Reveal'
 
 const playlists = [
   {
@@ -58,65 +59,71 @@ export default function Tutorials() {
   return (
     <section id="tutorials" className="py-24 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16" data-aos="fade-up">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Tutorials</h2>
-          <p className="text-gray-400 max-w-xl mx-auto">
-            Watch on YouTube, then dive into focused playlists and hands-on guides.
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Tutorials</h2>
+            <p className="text-gray-400 max-w-xl mx-auto">
+              Watch on YouTube, then dive into focused playlists and hands-on guides.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Playlists */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {playlists.map((playlist, i) => (
-            <div
-              key={playlist.title}
-              data-aos="fade-up"
-              data-aos-delay={i * 100}
-              className={`p-6 rounded-xl border border-${playlist.color}/20 bg-${playlist.color}/5 hover:border-${playlist.color}/40 transition-all hover:-translate-y-1 cursor-pointer`}
-            >
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-${playlist.color}/10`}>
-                <Play size={20} className={`text-${playlist.color}`} />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">{playlist.title}</h3>
-              <p className="text-sm text-gray-400 mb-3">{playlist.description}</p>
-              <div className="flex items-center gap-2 text-xs text-gray-500">
-                <Clock size={12} />
-                <span>{playlist.episodes} episodes</span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <RevealStagger stagger={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {playlists.map((playlist) => (
+              <RevealItem key={playlist.title}>
+                <div
+                  className="p-6 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12] transition-colors cursor-pointer"
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 bg-${playlist.color}/10`}>
+                    <Play size={20} className={`text-${playlist.color}`} />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{playlist.title}</h3>
+                  <p className="text-sm text-gray-400 mb-3">{playlist.description}</p>
+                  <div className="flex items-center gap-2 text-xs text-gray-500">
+                    <Clock size={12} />
+                    <span>{playlist.episodes} episodes</span>
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </RevealStagger>
 
         {/* Featured Videos */}
-        <h3 className="text-xl font-semibold mb-6" data-aos="fade-up">Featured Videos</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredVideos.map((video, i) => (
-            <div
-              key={video.title}
-              data-aos="fade-up"
-              data-aos-delay={i * 50}
-              className="group p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all"
-            >
-              <div className="flex items-start gap-3 mb-3">
-                <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Play size={14} className="text-red-500" />
+        <Reveal>
+          <h3 className="text-xl font-semibold mb-6">Featured Videos</h3>
+        </Reveal>
+        <RevealStagger stagger={0.08}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredVideos.map((video) => (
+              <RevealItem key={video.title}>
+                <div
+                  className="group p-5 rounded-xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/10 transition-all"
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Play size={14} className="text-red-500" />
+                    </div>
+                    <h4 className="font-medium text-sm leading-tight">{video.title}</h4>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-3">{video.description}</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {video.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 text-[10px] rounded-full bg-white/5 text-gray-400 border border-white/5"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h4 className="font-medium text-sm leading-tight">{video.title}</h4>
-              </div>
-              <p className="text-xs text-gray-500 mb-3">{video.description}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {video.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-0.5 text-[10px] rounded-full bg-white/5 text-gray-400 border border-white/5"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+              </RevealItem>
+            ))}
+          </div>
+        </RevealStagger>
       </div>
     </section>
   )
