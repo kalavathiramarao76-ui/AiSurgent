@@ -189,7 +189,7 @@ export const aiProducts = [
     color: "#059669",
     gradient: "from-emerald-600 to-green-800",
     category: "developer",
-    web: "https://repodoc-ai.vercel.app",
+    web: "https://codescribe.aisurgent.dev",
     extension: "https://github.com/kalavathiramarao76-ui/repodoc-ext",
     mobile: "https://github.com/kalavathiramarao76-ui/repodoc-mobile",
     highlights: ["JSDoc Gen", "README Gen", "API Docs", "GitHub"],
